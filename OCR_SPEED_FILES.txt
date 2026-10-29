@@ -1,0 +1,9 @@
+app/main.py
+app/ocr.py
+app/ocr_process.py
+app/ocr_worker.py
+tests/test_ocr.py
+scripts/benchmark_ocr_speed.py
+README.md
+OCR_SPEED_REPORT.md
+OCR_SPEED_FILES.txt

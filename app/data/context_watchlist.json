@@ -1,0 +1,3946 @@
+{
+  "version": "2026-10-29.1",
+  "notice": "첨부 목록 200개를 대조합니다. 일반어·정체성·숫자는 단독 위험 근거가 아니며, 검색어 용례와 뜻 검증을 구분합니다.",
+  "group_labels": {
+    "location": "지역명",
+    "ordinary": "일반 표현",
+    "clothing": "의복·물품 표현",
+    "body": "신체 부위 명칭",
+    "number": "숫자·번호 표현 (연령 추정 안 함)",
+    "age": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+    "identity": "정체성·체형 관련 표현 (단독 위험 근거 아님)",
+    "identity_age": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+    "reward": "금전·물품·지원 관련 표현",
+    "trade": "거래·제공·조건 표현",
+    "contact": "연락·만남 관련 표현",
+    "proxy": "담배·대리구매 관련 표현",
+    "media": "사진·영상·공개 관련 검토 단서",
+    "abuse": "촬영·합성·모욕·유포 관련 표현",
+    "sexual": "성적 표현 (성착취 여부와 별개)",
+    "sexual_composite": "학교급 표현과 성적·비하 표현의 결합 (실제 연령 미확인)",
+    "ambiguous": "일반 용례와 특정 문맥 용례를 비교할 표현",
+    "unknown": "원형 미확인"
+  },
+  "sources": [
+    {
+      "id": "attached-watchlist",
+      "title": "사용자가 제공한 키워드 관리 표",
+      "purpose": "원문 표기·타입·행 상태만 확인. 은어 뜻·위험성의 검증 자료가 아님"
+    },
+    {
+      "id": "tacteen-monitoring-2023",
+      "title": "탁틴내일 2023 SNS 헬퍼 모니터링 이슈리포트",
+      "url": "https://30th.candyworks.co.kr/file/archive/162132_(%EC%82%AC)%ED%83%81%ED%8B%B4%EB%82%B4%EC%9D%BC%202023%20%EC%9D%B4%EC%8A%88%EB%A6%AC%ED%8F%AC%ED%8A%B8_sns%20%ED%97%AC%ED%8D%BC%20%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81(%EC%B5%9C%EC%A2%85).pdf",
+      "purpose": "PDF 8쪽 표2: 검색어 용례. 맘눌피·맘눌뎀·비떱·댈구 각주 풀이. 나머지는 뜻 검증이 아님"
+    },
+    {
+      "id": "watch-prevention",
+      "title": "서울신문 온라인 그루밍 부모 교육 용어집",
+      "url": "https://www.seoul.co.kr/SpecialEdition/grooming_education/",
+      "purpose": "일부 초성·SNS 축약의 한 가지 용례. 다의어의 다른 의미를 배제하지 않음"
+    },
+    {
+      "id": "gg-proxy-2021",
+      "title": "경기도 특별사법경찰단 대리구매 기획수사 브리핑",
+      "url": "https://gnews.gg.go.kr/news/news_detail_m.do?number=202103091247397319C117&s_code=daily",
+      "purpose": "댈구=대리구매 용례 확인. 현재 입력의 범죄 여부를 입증하지 않음"
+    },
+    {
+      "id": "body-photo-report",
+      "title": "뉴시스: 몸사 표현의 사진 거래 용례 보도",
+      "url": "https://mobile.newsis.com/view/NISX20130811_0012282192",
+      "purpose": "몸사=몸 사진 용례. 노출 정도·실제 인물·연령의 증거가 아님"
+    },
+    {
+      "id": "overlapping-acquaintance",
+      "title": "한국일보: 겹지·겹지인방 용례 설명",
+      "url": "https://www.hankookilbo.com/news/article/amp/A2024082715550005579",
+      "purpose": "겹지=겹치는 지인. 지인이 겹친다는 사실만으로 합성·성적 피해가 성립하지 않음"
+    },
+    {
+      "id": "moj-prevention",
+      "title": "법무부 중·고등학생 디지털 성범죄 예방 자료",
+      "url": "https://www.moj.go.kr/bbs/moj/161/409536/download.do",
+      "purpose": "지인능욕이라 불리는 성적 모욕·합성 피해의 예방 설명. 법률 판정용 아님"
+    }
+  ],
+  "entries": [
+    {
+      "keyword": "지인능욕",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "지인을 대상으로 한 성적 모욕·합성 관련 표현",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "지인을 대상으로 한 성적 모욕·합성 관련 표현",
+          "evidence": "documented",
+          "sources": [
+            "moj-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "포즈",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "몸사",
+      "type": "은어",
+      "status": "활성",
+      "group": "media",
+      "meaning": "몸 사진",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "몸 사진",
+          "evidence": "documented",
+          "sources": [
+            "body-photo-report"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "ㅈㅇ",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "자위 / 자위 영상",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "자위 / 자위 영상",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        },
+        {
+          "expansion": "지원 / 주의 / 지인",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "얼공",
+      "type": "은어",
+      "status": "활성",
+      "group": "media",
+      "meaning": "얼굴 공개",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "얼굴 공개",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "수학여행",
+      "type": "일반",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "강아지",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "08ㄱㅇ",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "도촬",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "도둑 촬영 / 몰래 촬영 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "도둑 촬영 / 몰래 촬영 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "영딸",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "영상과 자위 관련 축약 후보",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "영상과 자위 관련 축약 후보",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "대딸",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "타인에 의한 자위행위 관련 속어",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "타인에 의한 자위행위 관련 속어",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "11ㄱㅇ",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "파파카츠",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "일반 용례와 특정 문맥 용례를 비교할 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 용례와 특정 문맥 용례를 비교할 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "스타킹",
+      "type": "은어",
+      "status": "활성",
+      "group": "clothing",
+      "meaning": "의복·물품 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "의복·물품 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "중딩 ㄱㅇ",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "계단라",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "은꼴",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "은근한 성적 자극을 나타내는 속어",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "은근한 성적 자극을 나타내는 속어",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "몸매",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "초딩자영",
+      "type": "은어",
+      "status": "활성",
+      "group": "media",
+      "meaning": "초등학생 지칭 표현 + 원형이 불확실한 자영 표기",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "초등학생 지칭 표현 + 원형이 불확실한 자영 표기",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "08 게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "담배",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "proxy",
+      "meaning": "담배·대리구매 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "담배·대리구매 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "중삐리",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "여중딩",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "용돈",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "reward",
+      "meaning": "금전·물품·지원 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "금전·물품·지원 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "상납",
+      "type": "은어",
+      "status": "활성",
+      "group": "trade",
+      "meaning": "거래·제공·조건 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "거래·제공·조건 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "슈가대디",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "reward",
+      "meaning": "금전·물품·지원 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "금전·물품·지원 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "11년생",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "10",
+      "type": "일반",
+      "status": "활성",
+      "group": "number",
+      "meaning": "숫자·번호 표현 (연령 추정 안 함)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·번호 표현 (연령 추정 안 함)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "자차필수",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "자가용 차량 필수",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "자가용 차량 필수",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "ㄱㄷㅁㄴ",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "간단만남",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "간단만남",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "만남",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "연락·만남 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "연락·만남 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고딩아다",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "sexual_composite",
+      "meaning": "고등학생 지칭 표현 + 성경험 관련 속어",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "고등학생 지칭 표현 + 성경험 관련 속어",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "서울",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "location",
+      "meaning": "지역명",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "지역명",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "여친대행",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "여자친구 역할 대행",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "여자친구 역할 대행",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "섹트판",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "섹트 계정·게시물 집단",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "섹트 계정·게시물 집단",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "보지노",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "자영",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "media",
+      "meaning": "자위 영상 / 자기 영상",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "자위 영상 / 자기 영상",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "패티쉬",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "페티시의 표기 변형",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "페티시의 표기 변형",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "ㄷㄸ",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "대딸 / 타인에 의한 자위행위",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "대딸 / 타인에 의한 자위행위",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "에세머",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "SM 관련 참여자 지칭 후보",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "SM 관련 참여자 지칭 후보",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "달바",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "구매",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "trade",
+      "meaning": "거래·제공·조건 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "거래·제공·조건 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "변남",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "성적 맥락의 자칭·비하 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "성적 맥락의 자칭·비하 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "중딩",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "중학생을 가리키는 속어",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "중학생을 가리키는 속어",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "미자",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "미성년자라고 지칭하는 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "미성년자라고 지칭하는 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "라인",
+      "type": "은어",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "라인(LINE) / 선·노선 등의 일반 의미",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "라인(LINE) / 선·노선 등의 일반 의미",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "10대",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "중딩변녀",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual_composite",
+      "meaning": "중학생 지칭 표현 + 성적 비하·자칭 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "중학생 지칭 표현 + 성적 비하·자칭 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "여고생",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "딥페",
+      "type": "은어",
+      "status": "활성",
+      "group": "media",
+      "meaning": "딥페이크",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "딥페이크",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "걸레",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "일반 용례와 특정 문맥 용례를 비교할 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 용례와 특정 문맥 용례를 비교할 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "로리",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "어린 외모·아동 성적 대상화 관련 표현 (실제 연령 판정 불가)",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "어린 외모·아동 성적 대상화 관련 표현 (실제 연령 판정 불가)",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "옾",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "오프 / 오프라인 만남",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "오프 / 오프라인 만남",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "겹지",
+      "type": "은어",
+      "status": "활성",
+      "group": "media",
+      "meaning": "겹치는 지인",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "겹치는 지인",
+          "evidence": "documented",
+          "sources": [
+            "overlapping-acquaintance"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "맞잠",
+      "type": "은어",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "함께 잠들기 / 통화하며 잠들기",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "함께 잠들기 / 통화하며 잠들기",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "건오",
+      "type": "은어",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "건전한 오프라인 만남",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "건전한 오프라인 만남",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "꽁담",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "reward",
+      "meaning": "무료 담배",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "무료 담배",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "교복업스",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "교복 차림의 치마 아래 촬영 관련 표현",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "교복 차림의 치마 아래 촬영 관련 표현",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "담댈",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "proxy",
+      "meaning": "담배 대리구매",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "담배 대리구매",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "라디",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "라인 아이디",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "라인 아이디",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "섹파",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "성관계 파트너 관련 속어",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "성관계 파트너 관련 속어",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "보평",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "신체 부위 품평 관련 축약 후보",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "신체 부위 품평 관련 축약 후보",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "겹지인",
+      "type": "은어",
+      "status": "활성",
+      "group": "media",
+      "meaning": "겹치는 지인",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "겹치는 지인",
+          "evidence": "documented",
+          "sources": [
+            "overlapping-acquaintance"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "남존여비",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "딜도",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "성인용 기구 명칭",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "성인용 기구 명칭",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "변녀그램",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "변녀 표기와 인스타그램을 결합한 표현",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "변녀 표기와 인스타그램을 결합한 표현",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "게친소",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity",
+      "meaning": "게이 친구 소개",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "게이 친구 소개",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "08",
+      "type": "일반",
+      "status": "활성",
+      "group": "number",
+      "meaning": "숫자·번호 표현 (연령 추정 안 함)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·번호 표현 (연령 추정 안 함)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "변녀",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "성적 맥락의 자칭·비하 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "성적 맥락의 자칭·비하 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "korea teen",
+      "type": "일반",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "한국·십대라는 영어 표기 (장르·나이 확인 불가)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "한국·십대라는 영어 표기 (장르·나이 확인 불가)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "조건",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "trade",
+      "meaning": "거래·제공·조건 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "거래·제공·조건 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "얼싸",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "얼굴 부위 사정 관련 속어",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "얼굴 부위 사정 관련 속어",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고3",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "부산",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "location",
+      "meaning": "지역명",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "지역명",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "중딩게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "중학생",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "짧은치마",
+      "type": "은어",
+      "status": "활성",
+      "group": "clothing",
+      "meaning": "의복·물품 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "의복·물품 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "ㅇㅍ",
+      "type": "은어",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "오프 / 오프라인 만남",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "오프 / 오프라인 만남",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "09게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "지능",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "입던팬티",
+      "type": "은어",
+      "status": "활성",
+      "group": "clothing",
+      "meaning": "의복·물품 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "의복·물품 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고해성사",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "자영판매",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "media",
+      "meaning": "자영으로 불리는 영상의 판매",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "자영으로 불리는 영상의 판매",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "지인합성",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "지인의 사진·영상 합성 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "지인의 사진·영상 합성 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "야단라",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "팬티",
+      "type": "은어",
+      "status": "활성",
+      "group": "clothing",
+      "meaning": "의복·물품 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "의복·물품 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "자차필",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "자가용 차량 필수",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "자가용 차량 필수",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "맘눌피",
+      "type": "은어",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "좋아요를 누르면 피드를 보러 감",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "좋아요를 누르면 피드를 보러 감",
+          "evidence": "documented",
+          "sources": [
+            "tacteen-monitoring-2023"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "맘눌뎀",
+      "type": "은어",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "좋아요를 누르면 DM을 보냄",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "좋아요를 누르면 DM을 보냄",
+          "evidence": "documented",
+          "sources": [
+            "tacteen-monitoring-2023"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "자위",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "자위행위",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "자위행위",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "꽁돈",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "reward",
+      "meaning": "공짜 돈",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "공짜 돈",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "11",
+      "type": "일반",
+      "status": "활성",
+      "group": "number",
+      "meaning": "숫자·번호 표현 (연령 추정 안 함)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·번호 표현 (연령 추정 안 함)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "11게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "고딩게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "18세",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "얼평",
+      "type": "은어",
+      "status": "활성",
+      "group": "media",
+      "meaning": "얼굴 품평",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "얼굴 품평",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "가슴",
+      "type": "은어",
+      "status": "활성",
+      "group": "body",
+      "meaning": "신체 부위 명칭",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "신체 부위 명칭",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "09",
+      "type": "일반",
+      "status": "활성",
+      "group": "number",
+      "meaning": "숫자·번호 표현 (연령 추정 안 함)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·번호 표현 (연령 추정 안 함)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "헬퍼",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "도움 제공자 / 가출 청소년에게 지원을 제안하는 용례",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "도움 제공자 / 가출 청소년에게 지원을 제안하는 용례",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "양말",
+      "type": "은어",
+      "status": "활성",
+      "group": "clothing",
+      "meaning": "의복·물품 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "의복·물품 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고딩 ㄱㅇ",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "야동",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "성적 동영상",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "성적 동영상",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "미션",
+      "type": "은어",
+      "status": "활성",
+      "group": "trade",
+      "meaning": "거래·제공·조건 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "거래·제공·조건 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "제공",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "trade",
+      "meaning": "거래·제공·조건 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "거래·제공·조건 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "게단라",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "차ㄱㄷ",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "차에서 간단 / 차량 내 만남 축약 후보",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "차에서 간단 / 차량 내 만남 축약 후보",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "ㅈㄱ",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "조건만남",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "조건만남",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "섹트윗",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "성적 내용의 트윗",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "성적 내용의 트윗",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고딩변녀",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual_composite",
+      "meaning": "고등학생 지칭 표현 + 성적 비하·자칭 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "고등학생 지칭 표현 + 성적 비하·자칭 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "방과후",
+      "type": "일반",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "광주",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "location",
+      "meaning": "지역명",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "지역명",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "달보이스",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "허벅지",
+      "type": "은어",
+      "status": "활성",
+      "group": "body",
+      "meaning": "신체 부위 명칭",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "신체 부위 명칭",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고삐리",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "앞벗",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "앞에서 벗는다는 축약 후보",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "앞에서 벗는다는 축약 후보",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "오프",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "오프라인 만남",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "오프라인 만남",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "틱톡",
+      "type": "은어",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "틱톡 플랫폼",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "틱톡 플랫폼",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "10게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "라관",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "라인 관전",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "라인 관전",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "검스",
+      "type": "은어",
+      "status": "활성",
+      "group": "clothing",
+      "meaning": "검은 스타킹",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "검은 스타킹",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "딸감",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "성적 자극의 대상으로 지칭하는 비속표현",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "성적 자극의 대상으로 지칭하는 비속표현",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "대디",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "reward",
+      "meaning": "금전·물품·지원 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "금전·물품·지원 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "관전",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "노출",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "야동방",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "성적 영상 게시·공유방 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "성적 영상 게시·공유방 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고등어",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "생선 명칭 / 특정 문맥의 학교급 은어 가능성",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "생선 명칭 / 특정 문맥의 학교급 은어 가능성",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "섹트",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "성적 게시물을 올리는 트위터(X) 계정",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "성적 게시물을 올리는 트위터(X) 계정",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "사컨",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "상황극 / 상황 설정 관련 후보",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "상황극 / 상황 설정 관련 후보",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "여자",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "펠라",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "구강성교 관련 속어",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "구강성교 관련 속어",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "모음",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "중2",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "교복 업스",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "교복 차림의 치마 아래 촬영 관련 표현",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "교복 차림의 치마 아래 촬영 관련 표현",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "박제",
+      "type": "은어",
+      "status": "활성",
+      "group": "media",
+      "meaning": "사진·영상·공개 관련 검토 단서",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "사진·영상·공개 관련 검토 단서",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "ㅊㄷ",
+      "type": "은어",
+      "status": "활성",
+      "group": "age",
+      "meaning": "초딩 / 초등학생",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "초딩 / 초등학생",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "비떱",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity",
+      "meaning": "BBW / 체형을 나타내는 커뮤니티 표현",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "BBW / 체형을 나타내는 커뮤니티 표현",
+          "evidence": "documented",
+          "sources": [
+            "tacteen-monitoring-2023"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "ㄱㄷ",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "고딩 / 고등학생",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "고딩 / 고등학생",
+          "evidence": "hypothesis",
+          "sources": []
+        },
+        {
+          "expansion": "간단 / 유사성행위 관련 용례",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "08게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "교복",
+      "type": "일반",
+      "status": "활성",
+      "group": "clothing",
+      "meaning": "의복·물품 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "의복·물품 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "남고딩",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "ㅇㄹ",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "오랄 / 오럴 / 구강성교",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "오랄",
+          "evidence": "hypothesis",
+          "sources": []
+        },
+        {
+          "expansion": "오럴 / 구강성교",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        },
+        {
+          "expansion": "요리",
+          "evidence": "hypothesis",
+          "sources": []
+        },
+        {
+          "expansion": "아래",
+          "evidence": "hypothesis",
+          "sources": []
+        },
+        {
+          "expansion": "알림",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "오랄은 사용자가 제시한 표기 후보입니다. 예방 용어집의 오럴·구강성교 용례와 구분합니다. 요리·아래·알림 같은 일반 초성 의미도 가능합니다. 뜻·의도·불법성은 문맥 확인이 필요합니다.",
+      "ordinary_contexts": [
+        {
+          "expansion": "요리",
+          "hints": [
+            "레시피",
+            "식재료",
+            "조리법",
+            "요리법",
+            "식단"
+          ]
+        },
+        {
+          "expansion": "아래",
+          "hints": [
+            "윗줄",
+            "위쪽",
+            "아래쪽",
+            "하단",
+            "스크롤"
+          ]
+        },
+        {
+          "expansion": "알림",
+          "hints": [
+            "푸시",
+            "알림 설정",
+            "공지사항",
+            "알림음"
+          ]
+        }
+      ]
+    },
+    {
+      "keyword": "ㅈㄱㅁㄴ",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "조건만남",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "조건만남",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity",
+      "meaning": "동성애자 관련 정체성 표현",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "동성애자 관련 정체성 표현",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "ㅁㅋ",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "19살",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "고페이",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "reward",
+      "meaning": "높은 보수·대가",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "높은 보수·대가",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "따먹기",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "획득·놀이의 일반 뜻 / 성관계 비속표현",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "획득·놀이의 일반 뜻 / 성관계 비속표현",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "노예",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "일반 용례와 특정 문맥 용례를 비교할 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 용례와 특정 문맥 용례를 비교할 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "지인상납",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "지인의 정보·이미지 제공 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "지인의 정보·이미지 제공 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "암캐",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "일반 용례와 특정 문맥 용례를 비교할 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 용례와 특정 문맥 용례를 비교할 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "섹블",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "성적 내용의 블로그",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "성적 내용의 블로그",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "초딩",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "초등학생을 가리키는 속어",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "초등학생을 가리키는 속어",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "고딩",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "고등학생을 가리키는 속어",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "고등학생을 가리키는 속어",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "보지필통",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "신체 비속표현을 포함한 합성어 (구체적 뜻 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "신체 비속표현을 포함한 합성어 (구체적 뜻 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "홍보",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "학생",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "koreateen",
+      "type": "일반",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "한국·십대라는 영어 표기 (장르·나이 확인 불가)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "한국·십대라는 영어 표기 (장르·나이 확인 불가)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "자차",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "contact",
+      "meaning": "자가용 차량",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "자가용 차량",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "ㅈㄷ",
+      "type": "일반",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "초딩게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "수치플",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "성적 수치심 관련 역할 표현",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "성적 수치심 관련 역할 표현",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "정지",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고등학생",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "지합",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "지인 합성",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "지인 합성",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "꽁술",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "reward",
+      "meaning": "무료 술",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "무료 술",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "리틀",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "작다는 영어 표현 / 일부 커뮤니티의 역할 명칭 (아동 단정 불가)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "작다는 영어 표현 / 일부 커뮤니티의 역할 명칭 (아동 단정 불가)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "입싸",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "구강 사정 관련 속어",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "구강 사정 관련 속어",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "능요",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "능욕의 오타·변형 후보",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "능욕의 오타·변형 후보",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "야노",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "야외 노출 관련 속어",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "야외 노출 관련 속어",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "섹스",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "성관계",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "성관계",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "능욕",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "촬영·합성·모욕·유포 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "촬영·합성·모욕·유포 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "서열방",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "촬영·합성·모욕·유포 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "촬영·합성·모욕·유포 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "스타일",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "09리틀",
+      "type": "은어",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "09라는 숫자 + 리틀 표기 (실제 연령 추정 안 함)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "09라는 숫자 + 리틀 표기 (실제 연령 추정 안 함)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "여고딩",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "12",
+      "type": "일반",
+      "status": "활성",
+      "group": "number",
+      "meaning": "숫자·번호 표현 (연령 추정 안 함)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·번호 표현 (연령 추정 안 함)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "ㅁㅁ",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "09ㄱㅇ",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "12게이",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "1n",
+      "type": "일반",
+      "status": "활성",
+      "group": "number",
+      "meaning": "숫자·번호 표현 (연령 추정 안 함)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·번호 표현 (연령 추정 안 함)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "담배댈구",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "proxy",
+      "meaning": "담배 대리구매",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "담배 대리구매",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "10비떱",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity",
+      "meaning": "10이라는 숫자 + 체형 관련 표기 (실제 연령 추정 안 함)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "10이라는 숫자 + 체형 관련 표기 (실제 연령 추정 안 함)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "판매",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "trade",
+      "meaning": "거래·제공·조건 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "거래·제공·조건 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "발",
+      "type": "은어",
+      "status": "활성",
+      "group": "body",
+      "meaning": "신체 부위 명칭",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "신체 부위 명칭",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "ㅍㄹ",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "펠라 / 구강성교",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "펠라 / 구강성교",
+          "evidence": "documented",
+          "sources": [
+            "watch-prevention"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "고등",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "10년생",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "보지",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "여성 성기의 비속표현",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "여성 성기의 비속표현",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "하이",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "아다",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "성경험이 없다는 속어 / 이름·다른 약어 가능성",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "성경험이 없다는 속어 / 이름·다른 약어 가능성",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "초딩보지",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual_composite",
+      "meaning": "초등학생 지칭 표현 + 신체 비속표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "초등학생 지칭 표현 + 신체 비속표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "야짤",
+      "type": "은어",
+      "status": "활성",
+      "group": "sexual",
+      "meaning": "성적 이미지 관련 속어",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "성적 이미지 관련 속어",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "간단",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "ambiguous",
+      "meaning": "단순·짧다는 일반 의미 / 특정 만남 축약 가능성",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "단순·짧다는 일반 의미 / 특정 만남 축약 가능성",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "10ㄱㅇ",
+      "type": "은어",
+      "status": "활성",
+      "group": "identity_age",
+      "meaning": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "숫자·학교급과 정체성 관련 표기의 결합 (실제 연령·성적 의도 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다. 성적 지향·체형만으로 유해성이나 성착취를 추정하지 않습니다."
+    },
+    {
+      "keyword": "댈구",
+      "type": "유인문구",
+      "status": "활성",
+      "group": "proxy",
+      "meaning": "대리구매",
+      "evidence": "documented",
+      "candidates": [
+        {
+          "expansion": "대리구매",
+          "evidence": "documented",
+          "sources": [
+            "gg-proxy-2021"
+          ]
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "09녀",
+      "type": "은어",
+      "status": "활성",
+      "group": "age",
+      "meaning": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "나이·학교급을 나타내는 표현 (실제 연령 미확인)",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    },
+    {
+      "keyword": "지인박제",
+      "type": "은어",
+      "status": "활성",
+      "group": "abuse",
+      "meaning": "지인의 정보·이미지 게시·보존 관련 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "지인의 정보·이미지 게시·보존 관련 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "일탈",
+      "type": "은어",
+      "status": "활성",
+      "group": "ordinary",
+      "meaning": "일반 표현",
+      "evidence": "literal",
+      "candidates": [
+        {
+          "expansion": "일반 표현",
+          "evidence": "literal",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist",
+        "tacteen-monitoring-2023"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다."
+    },
+    {
+      "keyword": "야상극",
+      "type": "은어",
+      "status": "활성",
+      "group": "unknown",
+      "meaning": "원형 미확인",
+      "evidence": "unknown",
+      "candidates": [],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 풀이 후보가 있더라도 검증된 원형이 아닙니다."
+    },
+    {
+      "keyword": "교딩",
+      "type": "일반",
+      "status": "활성",
+      "group": "age",
+      "meaning": "고딩의 표기 변형 후보",
+      "evidence": "hypothesis",
+      "candidates": [
+        {
+          "expansion": "고딩의 표기 변형 후보",
+          "evidence": "hypothesis",
+          "sources": []
+        }
+      ],
+      "occurrence_sources": [
+        "attached-watchlist"
+      ],
+      "note": "목록 일치는 뜻·의도·불법성의 판정이 아닙니다. 숫자·학교급은 글의 표기일 뿐 실제 나이·신원은 확인하지 않습니다."
+    }
+  ]
+}

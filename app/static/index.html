@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#123d3b"><title>은어 렌즈 · 문맥 분석 작업실</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23123d3b'/%3E%3Ccircle cx='18' cy='17' r='9' fill='none' stroke='%23c0edbd' stroke-width='3'/%3E%3Cpath d='m25 25 7 7' stroke='%23c0edbd' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/styles.css"><script src="/static/app.js" defer></script><script src="/static/ocr.js" defer></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="은어 렌즈 홈"><span class="brand-icon">◉</span><span>은어 렌즈<small>CONTEXT INSPECTOR</small></span></a>
+    <div class="nav-label">작업 공간</div>
+    <nav aria-label="주 메뉴">
+      <button class="nav-item active" data-page="analyze" aria-current="page"><span>⌕</span>텍스트 분석<span class="nav-arrow">↗</span></button>
+      <button class="nav-item" data-page="image"><span>▧</span>이미지 OCR</button>
+      <button class="nav-item" data-page="lexicon"><span>▤</span>은어 사전<span class="nav-count" id="nav-count">—</span></button>
+      <button class="nav-item" data-page="discovery"><span>◇</span>새 후보 발굴</button>
+    </nav>
+    <div class="sidebar-note"><span class="mini-label">분석의 원칙</span><p>단어를 찾고,<br>문맥으로 살펴보세요.</p><small>탐지 결과는 검토의 출발점입니다.<br>불법성이나 의도를 확정하지 않습니다.</small></div>
+    <div class="engine-status"><span class="status-dot" id="status-dot"></span><div id="engine-status">분석기 연결 중<small>로컬에서 처리 · 외부 전송 없음</small></div></div>
+  </aside>
+
+  <main>
+    <header class="topbar"><span>언어 분석 작업실 <span class="slash">/</span> <strong id="breadcrumb">텍스트 분석</strong></span><span class="local-badge">● LOCAL WORKSPACE</span></header>
+    <div class="page-container">
+      <section id="page-analyze" class="page">
+        <div class="page-heading"><div><div class="eyebrow">READ BETWEEN THE WORDS</div><h1>표현 너머의 문맥을 읽다<span>.</span></h1><p>텍스트 속 은어와 변형 표현을 찾고, 추정 근거를 함께 확인하세요.</p></div><span class="version">KIWI ENGINE <b>01</b></span></div>
+        <div class="pipeline" aria-label="분석 과정"><div><span>01</span><strong>난독화 복원</strong><small>유니코드 · 삽입 기호</small></div><b>→</b><div><span>02</span><strong>사전 대조</strong><small>별칭 · 초성 표현</small></div><b>→</b><div><span>03</span><strong>후보 추정</strong><small>자모 유사도 · 주변 단서</small></div><b>→</b><div><span>04</span><strong>검토와 반영</strong><small>후보 확인 · 사전 등록</small></div></div>
+        <div class="workspace-grid">
+          <section class="panel input-panel"><div class="panel-title"><h2>분석할 텍스트</h2><label class="file-button" for="text-file">↑ TXT 불러오기</label><input id="text-file" type="file" accept=".txt,text/plain" hidden></div>
+            <label class="sr-only" for="input-text">분석할 텍스트 입력</label><textarea id="input-text" maxlength="20000" placeholder="문장, 게시글 또는 확인하고 싶은 표현을 입력하세요.&#10;&#10;특수문자를 끼워 넣은 표현과 초성도 함께 살펴봅니다."></textarea>
+            <div class="input-meta"><span>입력 원문은 서버에 저장하지 않습니다.</span><span><b id="char-count">0</b> / 20,000</span></div>
+            <div class="example-row"><span>예시</span><button data-sample="posting">게시글 문맥</button><button data-sample="initials">초성 원형</button><button data-sample="obfuscated">변형 표현</button><button data-sample="context">문맥 후보</button><button data-sample="normal">일반 문장</button></div>
+            <details class="options"><summary>분석 설정 <span>규칙 기반 분석</span></summary><div class="option-content"><label for="threshold">자모 유사도 기준 <output id="threshold-value">0.82</output></label><input id="threshold" type="range" min="0.75" max="0.98" step="0.01" value="0.82"><label class="check-label"><input id="discover-toggle" type="checkbox" checked> 미등록 문맥 후보도 표시</label><small>낮은 기준은 후보 수와 오탐을 함께 늘릴 수 있습니다.</small><label class="check-label"><input id="deep-toggle" type="checkbox"> 로컬 모델로 문장 속 원형 비교</label><small id="deep-status">로컬 모델 연결 확인 중 · 최대 6,000자</small></div></details>
+            <div class="input-actions"><button id="clear" class="text-button">입력 지우기</button><span class="keyboard-hint">Ctrl + Enter</span><button id="analyze-button" class="primary-button">텍스트 분석 <span>↗</span></button></div>
+          </section>
+          <aside class="guide-panel"><span class="mini-label">A CLOSER LOOK</span><h2>무엇을<br>찾을 수 있나요?</h2><div class="guide-item"><span class="guide-number">a.</span><div><strong>사전에 등록된 표현</strong><p>등록된 은어·별칭과 원문을 대조합니다.</p></div></div><div class="guide-item"><span class="guide-number">b.</span><div><strong>숨겨진 변형 표현</strong><p>기호·띄어쓰기 삽입을 복원하고 자모를 비교합니다.</p></div></div><div class="guide-item"><span class="guide-number">c.</span><div><strong>검토가 필요한 새 후보</strong><p>거래·연락 등 서로 다른 주변 단서가 함께 나타난 명사를 추출합니다.</p></div></div><div class="guide-foot">i <span>문맥 점수는 확률이 아닙니다.<br>보도·예방·일상 용례를 함께 확인하세요.</span></div></aside>
+        </div>
+        <section class="results" id="results" aria-live="polite">
+          <div class="results-heading"><h2>분석 결과 <span id="result-caption">분석을 시작하면 이곳에 표시됩니다</span></h2><button id="export-result" class="secondary-button" hidden>↓ JSON 내보내기</button></div>
+          <div id="result-empty" class="empty-state"><span class="empty-symbol">⌕</span><h3>아직 살펴본 텍스트가 없어요</h3><p>위에 텍스트를 입력하거나 예시를 선택해 분석해 보세요.</p></div>
+          <div id="result-content" hidden><div class="stats"><div><span>전체 탐지</span><strong id="stat-total">0</strong></div><div><span>사전·표현 규칙</span><strong id="stat-known">0</strong></div><div><span>추정 후보</span><strong id="stat-candidates">0</strong></div><div><span>처리 시간</span><strong id="stat-time">0<small> ms</small></strong></div></div><div class="result-notice" id="result-notice"></div><div class="panel text-preview"><div class="panel-title"><h3>원문에서 확인</h3><div class="legend"><span>● 사전·복원</span><span>● 추정 후보</span></div></div><div id="highlighted-text"></div></div><div id="match-list"></div><details class="technical-details"><summary>정규화 텍스트와 Kiwi 형태소 보기</summary><pre id="normalized-text"></pre><div id="tokens" class="tokens"></div></details></div>
+        </section>
+      </section>
+
+      <section id="page-lexicon" class="page" hidden><div class="page-heading"><div><div class="eyebrow">YOUR KNOWLEDGE BASE</div><h1>은어 사전<span>.</span></h1><p>표현과 추정 의미를 관리하세요. 변경 사항은 다음 분석부터 적용됩니다.</p></div><button id="export-lexicon" class="secondary-button">↓ 사전 내보내기</button></div><div class="result-notice">공개 수집 표현과 기본 시드를 함께 제공합니다. 성적 표현 자체가 성착취를 뜻하지 않으며, 실제 문맥과 동의 여부를 확인해야 합니다.</div><section id="dataset-info" class="dataset-info" aria-label="데이터 수집 현황"></section><section class="panel dictionary-form"><h2>표현 등록</h2><form id="entry-form"><div class="form-grid"><label>표현<input id="entry-alias" required minlength="2" maxlength="30" placeholder="예: 검토할표현" pattern="[가-힣ㄱ-ㅎㅏ-ㅣa-zA-Z0-9]+"><small>공백·기호 없이 2~30자</small></label><label>추정 원형<input id="entry-expansion" maxlength="60" placeholder="예: 고딩 (생략하면 입력 표현 유지)"></label><label>의미 / 설명<input id="entry-canonical" required minlength="2" maxlength="60" placeholder="예: 제작·유포 관련 의심 표현"></label><label>분류<input id="entry-category" maxlength="30" value="사용자 사전" required></label><label>검토 메모<input id="entry-note" maxlength="500" placeholder="출처, 일반 용례, 주의할 점"></label></div><div class="form-footer"><label class="check-label"><input id="entry-context" type="checkbox" checked> 문맥에 따라 의미가 달라지는 표현</label><button class="primary-button" type="submit">사전에 등록 +</button></div></form></section><div class="list-heading"><h2>등록된 표현 <span id="entry-count"></span></h2><label><span class="sr-only">사전 검색</span><input id="lexicon-search" placeholder="표현·의미 검색"></label></div><div id="lexicon-list" class="lexicon-list"></div></section>
+
+      <section id="page-discovery" class="page" hidden><div class="page-heading"><div><div class="eyebrow">HUMAN IN THE LOOP</div><h1>새로운 표현을 발견하다<span>.</span></h1><p>여러 문서에 반복되는 문맥 후보를 모으고, 검토 후 사전에 반영하세요.</p></div></div><section class="panel discovery-panel"><h2>문서 묶음에서 후보 찾기</h2><p class="muted">한 줄에 문서 하나씩 입력하세요. 서로 다른 문서 2~100개, 전체 50,000자까지 분석합니다.</p><label class="sr-only" for="batch-text">줄바꿈으로 구분한 문서</label><textarea id="batch-text" maxlength="50000" placeholder="첫 번째 문서의 텍스트&#10;두 번째 문서의 텍스트&#10;세 번째 문서의 텍스트"></textarea><div class="form-footer"><label>최소 문서 빈도 <input id="min-count" type="number" min="2" max="100" value="2"></label><button id="discover-button" class="primary-button">후보 발굴 ↗</button></div><p class="small muted">원문은 저장하지 않습니다. 후보 표현·문서 빈도·단서 분류만 저장합니다. 동일 문서를 반복 입력해도 중복 집계하지 않습니다.</p></section><div class="list-heading"><h2>검토 대기 후보</h2><span id="discovery-caption" class="muted">자동으로 사전에 등록되지 않습니다.</span></div><div id="candidate-list"></div></section>
+      <footer><span>은어 렌즈 <b>·</b> 문맥을 살피는 언어 분석 도구</span><span>Kiwi + 설명 가능한 규칙 기반 추정</span></footer>
+    </div>
+  </main><div id="toast" role="status" hidden></div>
+</body></html>

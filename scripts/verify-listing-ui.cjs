@@ -1,0 +1,42 @@
+const { chromium } = require("playwright");
+const assert = require("node:assert/strict");
+const fs = require("node:fs/promises");
+const path = require("node:path");
+(async () => {
+  const browser = await chromium.launch({headless: true, executablePath: process.env.SLANG_CHROMIUM_PATH || undefined});
+  const page = await browser.newPage({viewport: {width: 1440, height: 1100}});
+  const errors = [];
+  page.on("pageerror", error => errors.push(error.message));
+  page.on("console", message => { if (message.type() === "error") errors.push(message.text()); });
+  try {
+    await page.goto(process.env.SLANG_UI_URL || "http://127.0.0.1:18640", {waitUntil: "networkidle"});
+    await page.waitForFunction(() => !document.querySelector("#deep-status").textContent.includes("확인 중"));
+    await page.locator(".options summary").click();
+    await page.locator("#deep-toggle").uncheck();
+    const text = "2026-10-29 ㅌㅌ 가상인물 꼭노 [3] 2026-10-29 취향)개한테 임신시켜달라는 ㄱㄹㄴ";
+    await page.locator("#input-text").fill(text);
+    await page.locator("#analyze-button").click();
+    await page.locator("#context-signals .signal-row").first().waitFor();
+    assert.equal(await page.locator("#match-list .match-card").count(), 4);
+    assert.equal(await page.locator("#context-signals .signal-row").count(), 4);
+    assert((await page.locator("#match-list").innerText()).includes("유두 노출(추정)"));
+    assert((await page.locator("#match-list").innerText()).includes("틱톡"));
+    assert(!(await page.locator("#match-list").innerText()).includes("가상인물"));
+    await fs.mkdir("artifacts", {recursive: true});
+    await page.screenshot({path: path.resolve("artifacts/listing-desktop.png"), fullPage: true});
+    await page.locator("#deep-toggle").check();
+    const pending = page.waitForResponse(r => r.url().endsWith("/api/context/interpret"), {timeout: 90000});
+    await page.locator("#analyze-button").click();
+    const data = await (await pending).json();
+    assert.equal(data.status, "ok", JSON.stringify(data));
+    assert.equal(data.redacted_person_labels, 1);
+    assert(data.items.some(item => item.surface === "꼭노"));
+    assert(data.items.some(item => item.surface === "ㄱㄹㄴ"));
+    await page.waitForFunction(() => !document.querySelector("#analyze-button").disabled);
+    await page.setViewportSize({width: 390, height: 844});
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await page.screenshot({path: path.resolve("artifacts/listing-mobile.png"), fullPage: true});
+    assert.deepEqual(errors, []);
+    console.log(JSON.stringify({status: "passed", expressions: 4, signals: 4, model: data.model, errors}));
+  } finally { await browser.close(); }
+})().catch(error => { console.error(error); process.exitCode = 1; });

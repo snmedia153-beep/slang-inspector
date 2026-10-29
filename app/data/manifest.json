@@ -1,0 +1,67 @@
+{
+  "collected_at": "2026-10-29T02:12:43.247054+00:00",
+  "sha256": "ff9aad634e1c5c3174465b0fd0ba1650abc9e190f97280b6937bffd22b278581",
+  "entries": 635,
+  "categories": {
+    "신체 관련 비속표현": 105,
+    "성적 은어·변형": 357,
+    "성인 콘텐츠 표현": 141,
+    "성착취 관련 표현": 12,
+    "불법촬영": 8,
+    "비동의 유포·협박": 4,
+    "합성·성적 괴롭힘": 3,
+    "문맥 의존 암어": 5
+  },
+  "sources": [
+    {
+      "id": "korcen",
+      "repository": "https://github.com/Tanat05/korcen",
+      "url": "https://raw.githubusercontent.com/Tanat05/korcen/eecd9763dbdccce3dc96ddb578ef0b6396058fa9/korcen/korcen.py",
+      "revision": "eecd9763dbdccce3dc96ddb578ef0b6396058fa9",
+      "license": "MIT",
+      "sha256": "948ce613c8f170949ebdcd81e728fed6c5dde50dadcde9325ea7fe94b7b50e97",
+      "source_items": 149,
+      "retained_items": 144
+    },
+    {
+      "id": "doublems",
+      "repository": "https://github.com/doublems/korean-bad-words",
+      "url": "https://raw.githubusercontent.com/doublems/korean-bad-words/96d6ce489b64fcf258cd4c25b9a1b3a62b0f5558/korean-bad-words.md",
+      "revision": "96d6ce489b64fcf258cd4c25b9a1b3a62b0f5558",
+      "license": "MIT",
+      "sha256": "49b49e022041c68f5daeadbc25bc61080cf6b2ba4bf69ae0f5b5dae468152ac2",
+      "source_items": 3577,
+      "retained_items": 488
+    },
+    {
+      "id": "badwords-ko",
+      "repository": "https://github.com/yoonheyjung/badwords-ko",
+      "url": "https://raw.githubusercontent.com/yoonheyjung/badwords-ko/8c9309112407941f94684d2750cd4fb94cf17373/src/badwords.ko.config.json",
+      "revision": "8c9309112407941f94684d2750cd4fb94cf17373",
+      "license": "MIT",
+      "sha256": "3c2fab5b179bda166af36de5c06066f142f65d0332fef1e9f16fd8e767d52606",
+      "source_items": 574,
+      "retained_items": 7
+    },
+    {
+      "id": "ldnoobw",
+      "repository": "https://github.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words",
+      "url": "https://raw.githubusercontent.com/LDNOOBW/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/5faf2ba42d7b1c0977169ec3611df25a3c08eb13/ko",
+      "revision": "5faf2ba42d7b1c0977169ec3611df25a3c08eb13",
+      "license": "CC-BY-4.0",
+      "sha256": "0dd4b74ffea6e3bb35d658e6d8262b53ee99281eaa48ecb515a2065bfcc7f69d",
+      "source_items": 72,
+      "retained_items": 26
+    },
+    {
+      "id": "nhrck-2021",
+      "url": "https://www.archivecenter.net/kaitArchive/attach/90000/96477/20231017215752233.pdf",
+      "title": "2021 아동·청소년 성착취 피해예방과 인권적 구제 방안 실태조사",
+      "pages": "PDF 133, 450, 457, 458, 466쪽: 피해 유형 및 관련 용어",
+      "license": "용어 사실만 사용; 본문·정의 재배포 안 함",
+      "retained_items": 23
+    }
+  ],
+  "generated_variants_included": false,
+  "notice": "은어 전체를 보장하지 않습니다. 성적 표현과 성착취 근거는 구분해야 합니다."
+}

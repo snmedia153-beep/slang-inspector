@@ -1,0 +1,33 @@
+name: slang-inspector
+services:
+  web:
+    image: slang-inspector:local
+    build:
+      context: .
+      target: runtime
+    ports:
+      - "127.0.0.1:${SLANG_PORT:-18640}:8000"
+    environment:
+      SLANG_DATA_DIR: /data
+      SLANG_OLLAMA_URL: ${SLANG_OLLAMA_URL:-http://host.docker.internal:11434}
+      SLANG_CONTEXT_MODEL: ${SLANG_CONTEXT_MODEL:-qwen3.5:9b}
+    volumes:
+      - slang-data:/data
+    restart: unless-stopped
+    init: true
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m,mode=1777
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    mem_limit: 2g
+    cpus: 2.0
+    logging:
+      driver: json-file
+      options:
+        max-size: 5m
+        max-file: "2"
+volumes:
+  slang-data:

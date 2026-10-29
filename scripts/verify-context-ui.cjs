@@ -1,0 +1,43 @@
+const { chromium } = require("playwright");
+const assert = require("node:assert/strict");
+const path = require("node:path");
+const fs = require("node:fs/promises");
+(async () => {
+  const browser = await chromium.launch({headless: true, executablePath: process.env.SLANG_CHROMIUM_PATH || undefined});
+  const page = await browser.newPage({viewport: {width: 1440, height: 1100}});
+  const errors = [];
+  page.on("pageerror", e => errors.push(e.message));
+  page.on("console", m => { if (m.type() === "error") errors.push(m.text()); });
+  try {
+    await page.goto(process.env.SLANG_UI_URL || "http://127.0.0.1:18640", {waitUntil: "networkidle"});
+    await page.waitForFunction(() => !document.querySelector("#deep-status").textContent.includes("확인 중"));
+    await page.locator(".options summary").click();
+    await page.locator("#deep-toggle").uncheck();
+    await page.getByRole("button", {name: "게시글 문맥", exact: true}).click();
+    await page.locator("#analyze-button").click();
+    await page.locator("#context-signals .signal-row").first().waitFor();
+    assert.equal(await page.locator("#match-list .match-card").count(), 3);
+    assert.equal(await page.locator("#context-signals .signal-row").count(), 2);
+    assert((await page.locator("#match-list").innerText()).includes("재업로드 금지"));
+    await page.locator("#input-text").fill("뒷고 나라풀 ㅈㅇ, ㅌㅇㅌ ㄱㄲ, 비상계단 ㅈㅇ, 개꼴일녀 ㅅㅅ, ㅇㄹㄴ 알몸 터미널, 사인팬으로 ㅋㄹ");
+    await page.locator("#deep-toggle").check();
+    const pending = page.waitForResponse(r => r.url().endsWith("/api/context/interpret"), {timeout: 90000});
+    await page.locator("#analyze-button").click();
+    const response = await pending;
+    const data = await response.json();
+    assert.equal(data.status, "ok", JSON.stringify(data));
+    await page.locator("#analyze-button").waitFor({state: "visible"});
+    await page.waitForFunction(() => !document.querySelector("#analyze-button").disabled);
+    const text = await page.locator("#context-interpretation").innerText();
+    assert(text.includes("트위터"));
+    assert(text.includes("지원"));
+    assert(text.includes("원형 미확인"));
+    await fs.mkdir("artifacts", {recursive: true});
+    await page.screenshot({path: path.resolve("artifacts/context-desktop.png"), fullPage: true});
+    await page.setViewportSize({width: 390, height: 844});
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await page.screenshot({path: path.resolve("artifacts/context-mobile.png"), fullPage: true});
+    assert.deepEqual(errors, []);
+    console.log(JSON.stringify({status: "passed", model: data.model, items: data.items.length, errors}));
+  } finally { await browser.close(); }
+})().catch(e => { console.error(e); process.exitCode = 1; });

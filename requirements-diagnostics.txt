@@ -1,0 +1,3 @@
+# Optional Windows-host diagnostics only; not production/runtime dependencies.
+openvino==2026.4.1
+numpy==2.5.4

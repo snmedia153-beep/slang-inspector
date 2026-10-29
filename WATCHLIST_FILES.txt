@@ -1,0 +1,16 @@
+Dockerfile
+README.md
+app/contextual.py
+app/data/context_knowledge.json
+app/data/context_watchlist.json
+app/engine.py
+app/main.py
+app/watchlist.py
+app/static/api.html
+app/static/app.js
+app/static/styles.css
+scripts/import_watchlist.py
+scripts/verify-watchlist-ui.cjs
+tests/test_watchlist.py
+WATCHLIST_REPORT.md
+WATCHLIST_FILES.txt

@@ -1,0 +1,90 @@
+[
+  {
+    "alias": "불법촬영물",
+    "canonical": "불법촬영물",
+    "category": "직접 표현",
+    "note": "명시적 표현. 보도·예방·신고 문맥에서도 등장할 수 있습니다.",
+    "needs_context": false,
+    "expansion": "불법촬영물"
+  },
+  {
+    "alias": "성착취물",
+    "canonical": "성착취물",
+    "category": "직접 표현",
+    "note": "명시적 표현이며 글 자체의 위법성을 뜻하지 않습니다.",
+    "needs_context": false,
+    "expansion": "성착취물"
+  },
+  {
+    "alias": "유출본",
+    "canonical": "동의 없는 유포 의심 표현",
+    "category": "유포 관련",
+    "note": "유출 대상과 동의 여부를 별도 확인해야 합니다.",
+    "needs_context": true,
+    "expansion": "유출본"
+  },
+  {
+    "alias": "몰카",
+    "canonical": "불법촬영 의심 표현",
+    "category": "촬영 관련",
+    "note": "몰래카메라 예능·보안·예방 용례와 구분해야 합니다.",
+    "needs_context": true,
+    "expansion": "몰래카메라"
+  },
+  {
+    "alias": "고딩물",
+    "canonical": "청소년 관련 성적 콘텐츠 의심 표현",
+    "category": "자료 예시",
+    "note": "첨부 자료에서 착안한 검토용 시드. 미성년 여부·의미를 확인해야 합니다.",
+    "needs_context": true,
+    "expansion": "고딩물"
+  },
+  {
+    "alias": "끄딩물",
+    "canonical": "청소년 관련 성적 콘텐츠 의심 표현",
+    "category": "자료 예시",
+    "note": "첨부 자료의 변형어 예시. 검증된 정답 라벨이 아닙니다.",
+    "needs_context": true,
+    "expansion": "고딩물"
+  },
+  {
+    "alias": "ㄱㄷ물",
+    "canonical": "청소년 관련 성적 콘텐츠 의심 표현",
+    "category": "자료 예시",
+    "note": "초성은 다의적이므로 문맥과 검토가 필요합니다.",
+    "needs_context": true,
+    "expansion": "고딩물"
+  },
+  {
+    "alias": "ㄱㄷ",
+    "canonical": "의미 확인이 필요한 초성",
+    "category": "초성 후보",
+    "note": "사용자 요청에 따른 원형 후보. 고등학생을 뜻하는 속어 등 문맥에 따라 의미가 달라집니다.",
+    "needs_context": true,
+    "expansion": "고딩"
+  },
+  {
+    "alias": "희귀자체제작",
+    "canonical": "제작·유포 관련 의심 표현",
+    "category": "자료 예시",
+    "note": "첨부 자료의 예시이며 일반 창작물에도 사용될 수 있습니다.",
+    "needs_context": true,
+    "expansion": "희귀 자체 제작"
+  },
+  {
+    "alias": "윾출본",
+    "canonical": "동의 없는 유포 의심 표현",
+    "category": "변형 표현",
+    "note": "유출본의 시각적 변형 후보. 대상과 의미를 확인해야 합니다.",
+    "needs_context": true,
+    "expansion": "유출본"
+  },
+  {
+    "alias": "ㄷㄸ",
+    "expansion": "대딸",
+    "canonical": "성적 행위 관련 은어",
+    "category": "초성 후보",
+    "note": "사용자 요청에 따른 원형 후보. 초성만으로 뜻이나 불법성을 확정하지 않습니다.",
+    "needs_context": true
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "engine": "RapidOCR + ONNX Runtime CPU",
+  "recognition": "PaddleOCR PP-OCRv5 Korean mobile",
+  "source": "https://huggingface.co/monkt/paddleocr-onnx",
+  "revision": "7b02d0a30a07ba2b92ad1ff5a8941ae2c633de65",
+  "upstream": "https://github.com/PaddlePaddle/PaddleOCR",
+  "license": "Apache-2.0 (PaddleOCR); converted ONNX model attribution",
+  "files": [
+    {"name": "det.onnx", "path": "detection/v3/det.onnx", "sha256": "ee40e80071ba3a320d4efda75f3e22047a7d049e9bf7bcaaf9daea23fc21b935"},
+    {"name": "rec.onnx", "path": "languages/korean/rec.onnx", "sha256": "322f140154c820fcb83c3d24cfe42c9ec70dd1a1834163306a7338136e4f1eaa"},
+    {"name": "dict.txt", "path": "languages/korean/dict.txt", "sha256": "a88071c68c01707489baa79ebe0405b7beb5cca229f4fc94cc3ef992328802d7"}
+  ]
+}

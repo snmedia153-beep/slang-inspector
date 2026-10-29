@@ -1,0 +1,207 @@
+{
+  "version": "2026-10-29.3",
+  "sources": [
+    {
+      "id": "phrase-research",
+      "url": "https://aclanthology.org/2021.findings-emnlp.16/",
+      "purpose": "후보 추출과 문맥 순위화의 분리. 해당 한국어 표현의 뜻을 증명하는 출처는 아님"
+    },
+    {
+      "id": "llm-research",
+      "url": "https://aclanthology.org/2024.figlang-1.9/",
+      "purpose": "다국어 은어 문맥 추론 연구. 한국어 정확도를 검증한 평가셋은 아님"
+    },
+    {
+      "id": "prevention-glossary",
+      "url": "https://www.seoul.co.kr/SpecialEdition/grooming_education/",
+      "purpose": "예방 교육용 용어집에서 ㅈㅇ, ㅅㅅ, ㅌㅇㅌ의 한 가지 용례 확인. 다의어 전체 의미는 아님"
+    },
+    {
+      "id": "ordinary-product",
+      "url": "https://wangjo.es.jne.kr/data/attach_data/goheung/wangjo_es/k2board/na/bbs_143480/ntt_1800633793/doc_5352vfcc5%3D80v8a%3D41v35%3D85v08%3D3f62v4cd3ve5be_v2647.pdf",
+      "purpose": "나라풀의 일반 문구 제품명 용례 확인"
+    },
+    {
+      "id": "tiktok-initial-usage",
+      "url": "https://news.sbs.co.kr/news/endPagePrintPopup.do?news_id=N1008459252",
+      "purpose": "ㅌㅌ를 틱톡 의미로 사용한 짧은 원문 용례. 게시글 인물·행위의 증거가 아님"
+    },
+    {
+      "id": "escape-initial-usage",
+      "url": "https://femiwiki.com/w/%E3%85%8C",
+      "purpose": "ㅌㅌ의 튀어튀어 용례. 다의어의 다른 뜻을 배제하지 않음"
+    },
+    {
+      "id": "doublems-original",
+      "url": "https://raw.githubusercontent.com/doublems/korean-bad-words/96d6ce489b64fcf258cd4c25b9a1b3a62b0f5558/korean-bad-words.md",
+      "purpose": "MIT 공개 사전의 걸레년 원형 존재 확인. ㄱㄹㄴ은 원형에서 생성한 초성 후보이며 매핑 용례를 검증한 것이 아님",
+      "license": "MIT"
+    }
+  ],
+  "entries": [
+    {
+      "term": "ㅇㄹ",
+      "candidates": [
+        {"expansion": "오랄", "sources": [], "evidence": "hypothesis"},
+        {"expansion": "오럴 / 구강성교", "sources": ["prevention-glossary"], "evidence": "documented"},
+        {"expansion": "요리", "sources": [], "evidence": "hypothesis"},
+        {"expansion": "아래", "sources": [], "evidence": "hypothesis"},
+        {"expansion": "알림", "sources": [], "evidence": "hypothesis"}
+      ],
+      "note": "오랄은 사용자가 제시한 표기 후보이며, 예방 용어집은 오럴·구강성교 의미의 한 용례를 확인합니다. 초성이 같은 요리·아래·알림 등의 일반 의미도 문장에 따라 비교합니다."
+    },
+    {
+      "term": "ㅈㅇ",
+      "candidates": [
+        {
+          "expansion": "자위",
+          "sources": [
+            "prevention-glossary"
+          ]
+        },
+        {
+          "expansion": "지원",
+          "sources": []
+        },
+        {
+          "expansion": "주의",
+          "sources": []
+        },
+        {
+          "expansion": "지인",
+          "sources": []
+        }
+      ],
+      "note": "공간 이름만으로 성적 의미를 확정하지 말 것. 채용·신청·도움 맥락의 지원, 안내 맥락의 주의 등도 비교."
+    },
+    {
+      "term": "ㅅㅅ",
+      "candidates": [
+        {
+          "expansion": "성관계",
+          "sources": [
+            "prevention-glossary"
+          ]
+        },
+        {
+          "expansion": "섹스",
+          "sources": []
+        },
+        {
+          "expansion": "수술",
+          "sources": []
+        },
+        {
+          "expansion": "식사",
+          "sources": []
+        },
+        {
+          "expansion": "세수",
+          "sources": []
+        }
+      ],
+      "note": "성적·의료·식사·일상 문맥을 비교. 한 의미만 강제하지 말 것."
+    },
+    {
+      "term": "ㅌㅇㅌ",
+      "candidates": [
+        {
+          "expansion": "트위터",
+          "sources": [
+            "prevention-glossary"
+          ]
+        }
+      ],
+      "note": "플랫폼 이름의 초성일 수 있으며 성착취를 뜻하는 표현 자체는 아님."
+    },
+    {
+      "term": "ㅋㄹ",
+      "candidates": [
+        {
+          "expansion": "컬러",
+          "sources": []
+        },
+        {
+          "expansion": "클릭",
+          "sources": []
+        },
+        {
+          "expansion": "클리토리스",
+          "sources": []
+        }
+      ],
+      "note": "여러 원형을 검토하기 위한 수동 후보. 몸 관련 원형은 자료로 확인되지 않은 가설이며 문맥만으로 확정하지 말 것."
+    },
+    {
+      "term": "나라풀",
+      "candidates": [
+        {
+          "expansion": "문구용 풀의 제품명",
+          "sources": [
+            "ordinary-product"
+          ]
+        }
+      ],
+      "note": "일반 제품명 용례가 있음. 게시글의 다른 의미·고유명사 여부는 미확인."
+    },
+    {
+      "term": "ㄱㄲ",
+      "candidates": [],
+      "note": "출처로 확인한 원형 없음. 닮은 초성의 단어를 임의로 정답으로 만들지 말 것."
+    },
+    {
+      "term": "ㅇㄹㄴ",
+      "candidates": [],
+      "note": "출처로 확인한 원형 없음. 인명·고유명사·오타·축약어를 구분할 추가 맥락 필요."
+    },
+    {
+      "term": "뒷고",
+      "candidates": [],
+      "note": "출처로 확인한 원형 없음. 미등록 표현으로 두고 확인되지 않은 원형을 단정하지 말 것."
+    },
+    {
+      "term": "ㅌㅌ",
+      "fast_detection": true,
+      "category": "플랫폼·일상 초성 후보",
+      "candidates": [
+        {
+          "expansion": "틱톡",
+          "sources": [
+            "tiktok-initial-usage"
+          ]
+        },
+        {
+          "expansion": "튀어튀어",
+          "sources": [
+            "escape-initial-usage"
+          ]
+        }
+      ],
+      "note": "플랫폼 이름 또는 도망을 뜻하는 일상 표현 등 여러 용례가 있습니다. 초성 자체를 성적 은어로 분류하지 않습니다."
+    },
+    {
+      "term": "ㄱㄹㄴ",
+      "fast_detection": true,
+      "category": "여성 비하 표현 초성 후보",
+      "candidates": [
+        {
+          "expansion": "걸레년",
+          "sources": [
+            "doublems-original"
+          ]
+        }
+      ],
+      "note": "공개 사전의 원형으로부터 생성한 초성 후보입니다. 실제 대응 의미는 미확인이며 특정 인물의 성적 특성이나 행동에 대한 사실이 아닙니다."
+    },
+    {
+      "term": "꼭노",
+      "candidates": [
+        {
+          "expansion": "유두 노출",
+          "sources": []
+        }
+      ],
+      "note": "이 문맥에서 검토하는 축약 원형 가설입니다. 신뢰할 만한 독립 사전 근거를 확보하지 못했으므로 확정·출처 검증으로 표시하지 않습니다."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+PERFORMANCE_REPORT.md
+PERFORMANCE_FILES.txt
+requirements-diagnostics.txt
+scripts/benchmark_slang.py
+scripts/probe_npu.py
+artifacts/hardware-profile.json
+artifacts/slang-performance.json
+artifacts/cpu-gpu-comparison.json
+artifacts/npu-probe.json
+artifacts/payload-profile.json
