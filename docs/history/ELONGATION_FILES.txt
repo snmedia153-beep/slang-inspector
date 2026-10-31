@@ -1,0 +1,13 @@
+app/elongation.py
+app/engine.py
+app/contextual.py
+app/watchlist.py
+app/static/app.js
+app/static/ocr.js
+app/static/styles.css
+tests/test_elongation.py
+scripts/verify-elongation-ui.cjs
+scripts/benchmark_elongation.py
+README.md
+ELONGATION_REPORT.md
+ELONGATION_FILES.txt

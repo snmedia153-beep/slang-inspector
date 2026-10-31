@@ -1,4 +1,4 @@
-"""Bounded, local-only candidate interpretation; model output is never ground truth."""
+"""로컬 모델의 후보 비교를 제한하고 원문·자료와 대조해 결과를 검증합니다."""
 
 import json
 import os
@@ -13,7 +13,9 @@ from urllib.parse import urlsplit
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
+from app.elongation import PRIVATE as IDENTIFIERS
 from app.engine import normalize
+from app.initial_candidates import initial_key
 from app.post_rules import COMMENT_COUNT, POST_DATE
 from app.watchlist import NEUTRAL, Watchlist
 
@@ -134,6 +136,11 @@ class ContextInterpreter:
             for s in signals
             if s["kind"] in {"social_account", "person_label"}
         ]
+        identifier_text, identifier_spans = normalize(text)
+        account_spans.extend(
+            (identifier_spans[m.start()][0], identifier_spans[m.end() - 1][1])
+            for m in IDENTIFIERS.finditer(identifier_text)
+        )
         pairs = {(m["start"], m["end"]): 0 for m in fast["matches"]}
         watch_hits = {
             (h["start"], h["end"]): h
@@ -148,7 +155,15 @@ class ContextInterpreter:
                 match.start() < h["end"] and match.end() > h["start"]
                 for h in fast.get("watchlist_hits", [])
             ):
-                # Listed spans are already candidates; ordinary listed words must stay ordinary.
+                # 등록 구간을 중복 추출하지 않고 일반어 분류를 유지합니다.
+                continue
+            if any(
+                m.get("evidence") == "unresolved_reference"
+                and match.start() < m["end"]
+                and match.end() > m["start"]
+                for m in fast["matches"]
+            ):
+                # 미확인 원형을 해당 구간이 포함된 긴 어절로 다시 추측하지 않습니다.
                 continue
             key = match.span()
             priority = 0 if re.fullmatch(r"[ㄱ-ㅎ]{2,10}", match.group()) else 1
@@ -157,7 +172,12 @@ class ContextInterpreter:
         result = []
         for i, (start, end) in enumerate(selected):
             surface = text[start:end]
-            normalized = normalize(surface)[0]
+            watch = watch_hits.get((start, end))
+            known = [m for m in fast["matches"] if m["start"] == start and m["end"] == end]
+            normalized = (
+                watch["keyword"] if watch else known[0]["term"] if known else normalize(surface)[0]
+            )
+            normalized = initial_key(normalized) or normalized
             particles = {
                 "",
                 "은",
@@ -182,7 +202,6 @@ class ContextInterpreter:
                 if normalized.startswith(entry["term"])
                 and normalized[len(entry["term"]) :] in particles
             ]
-            watch = watch_hits.get((start, end))
             if watch:
                 knowledge.append(
                     {
@@ -192,7 +211,6 @@ class ContextInterpreter:
                         "evidence": watch["evidence"],
                     }
                 )
-            known = [m for m in fast["matches"] if m["start"] == start and m["end"] == end]
             expansions = sorted(
                 {
                     value
@@ -207,6 +225,10 @@ class ContextInterpreter:
                     "start": start,
                     "end": end,
                     "surface": surface,
+                    "normalized_surface": normalized,
+                    "unresolved_reference": any(
+                        m.get("evidence") == "unresolved_reference" for m in known
+                    ),
                     "clause": clause_for(text, start, end),
                     "knowledge": knowledge,
                     "dictionary_candidates": expansions,
@@ -249,7 +271,7 @@ class ContextInterpreter:
             candidates = self.candidates(text, fast)
             if not candidates:
                 return {**result, "status": "ok", "message": "문맥을 비교할 표현 후보가 없습니다."}
-            # Account identifiers are unnecessary for semantics; mask them before model input.
+            # 의미 비교에 필요 없는 계정 식별자를 모델 입력에서 가립니다.
             redacted = list(text)
             for signal in fast.get("signals", []):
                 if signal["kind"] in {"social_account", "person_label"}:
@@ -292,7 +314,9 @@ class ContextInterpreter:
                 if candidate is None or item.id in seen:
                     continue
                 seen.add(item.id)
-                if candidate.get("watchlist") and candidate["watchlist"]["evidence"] == "unknown":
+                if candidate.get("unresolved_reference") or (
+                    candidate.get("watchlist") and candidate["watchlist"]["evidence"] == "unknown"
+                ):
                     item.status = "unresolved"
                     item.choices = []
                 if (
@@ -335,7 +359,7 @@ class ContextInterpreter:
                         "clause": candidate["clause"],
                     }
                 )
-            # Every unresolved initial remains visible even if the model silently omits it.
+            # 모델이 생략한 초성도 미확인 후보로 남깁니다.
             for candidate in candidates:
                 if (
                     re.fullmatch(r"[ㄱ-ㅎ]{2,10}", candidate["surface"]) or candidate["knowledge"]

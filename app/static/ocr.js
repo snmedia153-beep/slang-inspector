@@ -1,7 +1,7 @@
 "use strict";
 (() => {
   const page = element("section", "page"); page.id = "page-image"; page.hidden = true;
-  // Constant UI markup only. OCR strings and filenames are always rendered with textContent.
+  // 고정 마크업만 삽입하고 OCR 원문·파일명은 textContent로 출력합니다.
   page.innerHTML = `
     <div class="page-heading"><div><div class="eyebrow">READ THE IMAGE</div><h1>이미지 속 표현을 찾다<span>.</span></h1><p>이미지의 글자를 읽고 검토할 은어가 포함된 단어에 빨간 표식을 붙입니다.</p></div></div>
     <section class="panel ocr-input-panel"><h2>이미지 불러오기</h2>
@@ -19,6 +19,7 @@
     <section id="ocr-result-panel" hidden aria-live="polite"><p id="ocr-notice" class="result-notice"></p>
       <div class="ocr-toolbar"><button id="ocr-save-image" class="secondary-button">↓ 표식 이미지 PNG 저장</button><button id="ocr-save-json" class="secondary-button">↓ OCR 결과 JSON</button><button id="ocr-to-text" class="secondary-button">텍스트 화면에서 문맥 비교 ↗</button></div>
       <div id="ocr-regions" class="ocr-regions"></div>
+      <section id="ocr-normalizations" class="panel normalization-panel" hidden></section>
       <details class="panel ocr-correction"><summary>OCR 글자 확인·수정</summary><p class="muted">원문과 다른 단어를 고친 뒤 다시 분석하세요. 원래 단어 상자에 수정한 표현을 대조합니다. 비운 단어는 제외합니다.</p><pre id="ocr-text"></pre><div id="ocr-word-editors" class="ocr-word-editors"></div><button id="ocr-more-words" class="secondary-button" hidden>단어 100개 더 보기</button><button id="ocr-reanalyze" class="primary-button">수정한 글자로 다시 분석</button></details>
     </section>`;
   document.querySelector("footer").before(page);
@@ -98,6 +99,7 @@
       const input = element("input"); input.value = word.text; input.maxLength = 100; input.dataset.wordId = index; input.setAttribute("aria-label", `OCR 단어 ${index + 1} 수정`);
       input.addEventListener("input", () => {
         word.text = input.value; dirty = true; overlay.replaceChildren(); $("ocr-regions").replaceChildren();
+        $("ocr-normalizations").replaceChildren(); $("ocr-normalizations").hidden = true;
         $("ocr-count").textContent = "수정 후 재분석 필요"; $("ocr-status").textContent = "수정한 글자로 다시 분석을 눌러 표식을 갱신하세요.";
         $("ocr-save-image").disabled = true; $("ocr-save-json").disabled = true; $("ocr-to-text").disabled = true;
       });
@@ -111,6 +113,14 @@
     $("ocr-result-panel").hidden = false; $("ocr-count").textContent = `· ${data.regions.length}개 검토 표현`;
     $("ocr-notice").textContent = data.notice;
     $("ocr-text").textContent = data.text || "인식된 글자가 없습니다.";
+    const folds = data.analysis?.normalizations || [], folded = $("ocr-normalizations");
+    folded.replaceChildren(); folded.hidden = !folds.length;
+    if (folds.length) folded.append(element("h2", "", `늘임·반복 복원 후보 · ${folds.length}개`), element("p", "muted", "복원 자체는 성적 의미나 우회 의도의 판정이 아닙니다. OCR이 잘못 읽은 경우 글자를 수정해 다시 분석하세요."));
+    folds.slice(0, 100).forEach(item => {
+      const row = element("article", "watchlist-row");
+      row.append(element("strong", "", item.surface), element("p", "", `복원 후보 → ${item.restored}`)); folded.append(row);
+    });
+    if (folds.length > 100) folded.append(element("p", "muted", "앞 100개를 표시합니다. 전체 결과는 JSON에 포함됩니다."));
     $("ocr-status").textContent = `${data.message || "수정된 글자의 표식을 갱신했습니다."}${data.ocr_elapsed_ms ? ` · ${(data.ocr_elapsed_ms / 1000).toFixed(2)}초` : ""}`;
     const list = $("ocr-regions"); list.replaceChildren();
     if (!data.regions.length) list.append(element("p", "result-notice", data.words.length ? "현재 OCR 텍스트에서 표시할 검토 표현이 없습니다. 원문의 글자가 정확히 인식됐는지 확인하세요." : "글자를 인식하지 못했습니다. 더 선명한 이미지나 다른 글 배치를 시도하세요."));

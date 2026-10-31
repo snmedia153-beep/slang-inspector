@@ -1,0 +1,71 @@
+const { chromium } = require("playwright");
+const assert = require("node:assert/strict");
+const path = require("node:path");
+
+(async () => {
+  const browser = await chromium.launch({headless: true, executablePath: process.env.SLANG_CHROMIUM_PATH || undefined});
+  const page = await browser.newPage({viewport: {width: 1440, height: 1000}});
+  const errors = [];
+  page.on("pageerror", e => errors.push(e.message));
+  page.on("console", m => { if (m.type() === "error") errors.push(m.text()); });
+  const raw = "간다아아아아아안";
+  async function analyze(text) {
+    await page.locator("#input-text").fill(text);
+    const pending = page.waitForResponse(r => r.url().endsWith("/api/analyze"));
+    await page.getByRole("button", {name: "텍스트 분석 ↗", exact: true}).click();
+    const response = await pending;
+    assert.equal(response.status(), 200);
+    await page.waitForFunction(() => !document.querySelector("#analyze-button").disabled);
+    return response.json();
+  }
+  try {
+    await page.goto(process.env.SLANG_UI_URL || "http://127.0.0.1:18640", {waitUntil: "networkidle"});
+    await page.waitForFunction(() => document.querySelector("#status-dot").classList.contains("ready"));
+    await page.locator(".options summary").click(); await page.locator("#deep-toggle").uncheck(); await page.locator(".options summary").click();
+    let data = await analyze(raw);
+    assert.equal(data.normalizations[0].restored, "간단");
+    assert.equal(data.matches.length, 0);
+    await page.locator("#normalization-results").getByText("복원 후보 → 간단", {exact: true}).waitFor();
+    assert.equal(await page.locator("#highlighted-text mark").count(), 0);
+    assert(!(await page.locator("#match-list").innerText()).includes("고딩"));
+    data = await analyze(`🧪 ${raw} 몸사 판매 만남`);
+    assert(data.matches.some(m => m.surface === raw));
+    assert(await page.locator("#highlighted-text mark").filter({hasText: raw}).count());
+    await page.screenshot({path: path.resolve("artifacts/elongation-desktop.png"), fullPage: true});
+    await page.setViewportSize({width: 390, height: 844});
+    assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1));
+    await page.screenshot({path: path.resolve("artifacts/elongation-mobile.png"), fullPage: true});
+    data = await analyze("간단한 설명과 식사입니다");
+    assert.equal(data.normalizations.length, 0); assert.equal(data.matches.length, 0);
+    assert(await page.locator("#normalization-results").isHidden());
+    await page.locator('[data-page="image"]').click();
+    await page.waitForFunction(() => document.querySelector("#ocr-status").textContent.includes("준비됨"));
+    await page.locator("#ocr-file").setInputFiles(path.resolve("artifacts/ocr-sample.png"));
+    await page.waitForFunction(() => !document.querySelector("#ocr-run").disabled);
+    let response = page.waitForResponse(r => r.url().includes("/api/ocr/analyze"));
+    await page.locator("#ocr-run").click(); assert.equal((await response).status(), 200);
+    await page.waitForFunction(() => !document.querySelector("#ocr-run").disabled);
+    await page.locator(".ocr-correction summary").click();
+    const inputs = page.locator("#ocr-word-editors input");
+    for (let i = 0; i < await inputs.count(); i++) await inputs.nth(i).fill(i === 0 ? raw : "");
+    response = page.waitForResponse(r => r.url().endsWith("/api/ocr/reanalyze"));
+    await page.locator("#ocr-reanalyze").click();
+    data = await (await response).json();
+    await page.waitForFunction(() => !document.querySelector("#ocr-reanalyze").disabled);
+    assert.equal(data.regions.length, 0);
+    assert(await page.locator("#ocr-normalizations").isVisible());
+    assert((await page.locator("#ocr-normalizations").innerText()).includes("복원 후보 → 간단"));
+    await inputs.nth(0).fill(`${raw} 몸사 판매`);
+    assert(await page.locator("#ocr-normalizations").isHidden());
+    response = page.waitForResponse(r => r.url().endsWith("/api/ocr/reanalyze"));
+    await page.locator("#ocr-reanalyze").click();
+    data = await (await response).json();
+    await page.waitForFunction(() => !document.querySelector("#ocr-reanalyze").disabled);
+    const region = data.regions.find(r => r.surface === raw);
+    assert(region && region.word_ids[0] === 0);
+    assert(await page.locator("#ocr-overlay rect").count());
+    assert(await page.locator("#ocr-normalizations").isVisible());
+    assert.deepEqual(errors, []);
+    process.stdout.write(JSON.stringify({status: "passed", checks: ["elongation recovery", "ordinary ambiguity", "original highlight", "normalization panel", "mobile overflow", "OCR corrected text and boxes", "dirty state", "console"], errors}) + "\n");
+  } finally { await browser.close(); }
+})().catch(error => { console.error(error); process.exit(1); });

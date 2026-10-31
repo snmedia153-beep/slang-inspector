@@ -1,4 +1,4 @@
-"""Explain short posting expressions without inferring age, consent or legality."""
+"""연령·동의·불법성을 추정하지 않고 게시글의 축약 표현과 구조 단서를 설명합니다."""
 
 import re
 from datetime import date

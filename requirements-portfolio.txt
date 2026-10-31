@@ -1,0 +1,3 @@
+# Documentation graphics only; not installed in the application image.
+matplotlib==3.10.7
+Pillow==12.0.0

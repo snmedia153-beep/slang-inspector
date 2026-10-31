@@ -1,4 +1,4 @@
-"""Match a reviewed watchlist without treating ordinary words as sexual evidence."""
+"""일반어를 단독 성적 근거로 삼지 않고 검토 목록과 문맥 조합을 대조합니다."""
 
 import json
 import re
@@ -6,6 +6,7 @@ from bisect import bisect_left, bisect_right
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from app.initial_candidates import initial_boundary, initial_key
 from app.post_rules import COMMENT_COUNT, POST_DATE
 
 WORD = re.compile(r"[가-힣ㄱ-ㅎa-z0-9_]", re.I)
@@ -17,7 +18,7 @@ SUFFIX = re.compile(
 )
 PROTECTIVE = re.compile(r"신고|예방|근절|피해|수사|교육|연구|보도|금지|주의|상담")
 REQUEST = re.compile(r"보내|보여|요구|찍어|주면|구매|판매|삽니|팝니|교환|거래|팔아")
-PRIVATE = re.compile(r"https?://\S+|[\w.+-]+@[\w.-]+\.[a-z]{2,}", re.I)
+PRIVATE = re.compile(r"https?://\S+|(?<![\w.+-])[\w.+-]+@[\w.-]+\.[a-z]{2,}", re.I)
 NEUTRAL = {"ordinary", "location", "body", "clothing", "number", "age", "identity", "identity_age"}
 
 
@@ -51,7 +52,7 @@ class Watchlist:
             "evidence_counts": dict(Counter(entry["evidence"] for entry in self.bundle["entries"])),
         }
 
-    def scan(self, normalized, spans, original, signals):
+    def scan(self, normalized, spans, original, signals, reserved_initials=()):
         if not spans:
             return [], []
         private = [(m.start(), m.end()) for m in PRIVATE.finditer(original)] + [
@@ -63,10 +64,17 @@ class Watchlist:
         for entry, pattern in self.patterns:
             for match in pattern.finditer(normalized):
                 start, end = match.span()
+                if initial_key(entry["keyword"]) and not initial_boundary(normalized, start, end):
+                    continue
+                if initial_key(entry["keyword"]) and any(
+                    a <= start and end <= b and (start, end) != (a, b) for a, b in reserved_initials
+                ):
+                    # OCR에서 나뉜 긴 초성을 짧은 접두어 후보보다 먼저 보존합니다.
+                    continue
                 a, b = spans[start][0], spans[end - 1][1]
                 if any(a < y and b > x for x, y in private):
                     continue
-                # Numbers in dates/times, prices, versions or phone fragments are not age claims.
+                # 날짜·가격·버전·전화번호의 숫자를 나이 주장으로 해석하지 않습니다.
                 if entry["group"] == "number" and (
                     (start and normalized[start - 1] in "0123456789-/:")
                     or (end < len(normalized) and normalized[end] in "0123456789-/:")
@@ -95,26 +103,37 @@ class Watchlist:
                         "note": "보지 못하다·보지 말다 등의 일반 동사 용례입니다.",
                     }
                 raw.append((start, end, entry))
-        # Allow complete adjacent listed words (몸사판매), but no arbitrary substrings (서울대).
+        # 등록어끼리 붙은 경우는 허용하되 긴 일반어 안의 부분 일치는 제외합니다.
         left_valid, right_valid = set(), set()
-        for start, end, _ in sorted(raw, key=lambda row: row[:2]):
-            if start == 0 or not WORD.fullmatch(normalized[start - 1]) or start in left_valid:
+        for start, end, entry in sorted(raw, key=lambda row: row[:2]):
+            if (
+                start == 0
+                or not WORD.fullmatch(normalized[start - 1])
+                or start in left_valid
+                or initial_key(entry["keyword"])
+            ):
                 left_valid.add(end)
         right_starts = set()
-        for start, end, _ in sorted(raw, key=lambda row: row[:2], reverse=True):
+        for start, end, entry in sorted(raw, key=lambda row: row[:2], reverse=True):
             suffix = re.match(r"[가-힣ㄱ-ㅎa-z0-9_]+", normalized[end:])
             if (
                 end == len(normalized)
                 or not WORD.fullmatch(normalized[end])
                 or end in right_starts
                 or (suffix and SUFFIX.fullmatch(suffix.group()))
+                or initial_key(entry["keyword"])
             ):
                 right_starts.add(start)
                 right_valid.add((start, end))
         accepted = [
             row
             for row in raw
-            if (row[0] == 0 or not WORD.fullmatch(normalized[row[0] - 1]) or row[0] in left_valid)
+            if (
+                row[0] == 0
+                or not WORD.fullmatch(normalized[row[0] - 1])
+                or row[0] in left_valid
+                or initial_key(row[2]["keyword"])
+            )
             and row[:2] in right_valid
         ]
         kept = []
@@ -159,7 +178,7 @@ class Watchlist:
                 for hint in sense["hints"]
                 if hint in clause
             ]
-            # Conflicting hints stay ambiguous; do not force a single meaning.
+            # 단서가 충돌하면 단일 의미를 강제하지 않습니다.
             conflict = any(
                 h is not hit
                 and h["group"] in {"sexual", "abuse", "sexual_composite"}
@@ -242,7 +261,7 @@ class Watchlist:
         links = defaultdict(set)
         original_starts = [h["start"] for h in kept]
         for context in contexts:
-            # Each clause is bounded to 160 characters, so this lookup stays local.
+            # 문맥 구간은 최대 160자로 제한해 단서 결합이 멀리 번지지 않게 합니다.
             for hit in kept[
                 bisect_left(original_starts, context["start"]) : bisect_right(
                     original_starts, context["end"]

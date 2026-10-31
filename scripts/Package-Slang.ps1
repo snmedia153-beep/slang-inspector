@@ -5,18 +5,17 @@ $outputDirectory = Join-Path $root 'artifacts'
 $files = @(
     '.dockerignore', '.gitignore', 'compose.yaml', 'Dockerfile', 'pyproject.toml',
     'requirements.txt', 'requirements.lock', 'requirements-dev.txt',
-    'README.md', 'REPORT.md', 'DATASET.md', 'THIRD_PARTY_NOTICES.md',
-    'CONTEXT_RESEARCH.md', 'UPDATE_REPORT.md', 'UPDATE_FILES.txt'
+    'requirements-portfolio.txt', 'requirements-report.txt', 'requirements-diagnostics.txt',
+    '.env.example', 'README.md', 'DATASET.md', 'THIRD_PARTY_NOTICES.md', 'CONTEXT_RESEARCH.md'
 )
-foreach ($folder in @('app', 'scripts', 'tests', 'licenses')) {
+foreach ($folder in @('app', 'scripts', 'tests', 'licenses', 'docs', 'reports')) {
     $files += Get-ChildItem -LiteralPath (Join-Path $root $folder) -Recurse -File |
         Where-Object { $_.FullName -notmatch '[\\/]__pycache__[\\/]|\.pyc$' } |
         ForEach-Object { $_.FullName.Substring($root.Length + 1).Replace('\','/') }
 }
 $files = @($files | Sort-Object -Unique)
-$listPath = Join-Path $root 'CHANGED_FILES.txt'
+$listPath = Join-Path $outputDirectory 'SOURCE_FILES.txt'
 [IO.File]::WriteAllLines($listPath, $files, [Text.UTF8Encoding]::new($false))
-$files += 'CHANGED_FILES.txt'
 Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $archivePath = Join-Path $outputDirectory 'slang-inspector-files.zip'
@@ -25,7 +24,7 @@ $archive = [IO.Compression.ZipArchive]::new($archiveStream, [IO.Compression.ZipA
 try {
     foreach ($relative in $files) {
         $filePath = Join-Path $root $relative
-        [void][IO.Compression.ZipFileExtensions]::CreateEntryFromFile($archive, $filePath, $relative)
+        [void][IO.Compression.ZipFileExtensions]::CreateEntryFromFile($archive, $filePath, $relative.Replace('\','/'))
     }
 } finally { $archive.Dispose(); $archiveStream.Dispose() }
 Write-Host "Packaged $($files.Count) source/document files: $archivePath"

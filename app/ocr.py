@@ -1,4 +1,4 @@
-"""Local OCR with word-level geometry, mapped to the existing text-analysis offsets."""
+"""이미지를 검증하고 OCR 단어 좌표를 텍스트 분석의 원문 위치에 연결합니다."""
 
 import importlib.util
 import io
@@ -57,6 +57,7 @@ class OcrReview(BaseModel):
 
 
 def analyze_words(words, width, height, engine, threshold=0.82, discover=True):
+    """줄 경계를 유지한 OCR 텍스트를 분석하고 겹치는 원래 단어 상자를 반환합니다."""
     parts, indexed, offset, previous = [], [], 0, None
     for word in words:
         text = word["text"].replace("\n", " ").replace("\r", " ").strip()
@@ -100,7 +101,12 @@ def analyze_words(words, width, height, engine, threshold=0.82, discover=True):
                 "start": target["start"],
                 "end": target["end"],
                 "surface": target["surface"],
-                "expansion": target.get("expansion"),
+                "expansion": target.get("expansion")
+                or (
+                    "원형 미확인 · 초성 검토 후보"
+                    if target.get("evidence") == "unresolved_reference"
+                    else None
+                ),
                 "alternatives": target.get("alternatives", []),
                 "origin": target["origin"],
                 "category": target.get("category", target.get("group_label", "검토 후보")),
@@ -137,7 +143,7 @@ class OcrService:
             self.worker.start()
             self.startup_error = None
         except (OSError, ValueError, TimeoutError):
-            # Text analysis remains usable; an image request retries the worker.
+            # 텍스트 분석은 계속 제공하고 다음 이미지 요청에서 작업 프로세스를 재시도합니다.
             self.startup_error = "OCR 사전 준비에 실패했습니다. 이미지 분석 시 다시 시도합니다."
 
     def close(self):

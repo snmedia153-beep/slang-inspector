@@ -21,7 +21,7 @@
 
 분류별 개수는 635개 수집 묶음에 대한 값입니다. 643개 전부가 성착취 은어라는 뜻은 아닙니다. 초성 인덱스는 사전의 표현·원형에서 실행 시 생성하며 실수집 개수와 합산하지 않습니다. 실제 활성 개수와 초성 종류는 사전 화면 및 `/api/dataset`에서 조회합니다.
 
-`ㄱㄷ → 고딩`, `ㄷㄸ → 대딸` 등 사용자가 지정한 원형은 기본 시드로 유지합니다. 흔한 변형의 원형 일부를 정리했으며, 원형이 확인되지 않은 수집 표현은 표면형을 그대로 표시합니다. 학습 모델이 모든 표현을 해독했다고 표시하지 않습니다.
+`ㄱㄷ → 고딩`, `ㄷㄸ → 대딸` 등의 원형은 기본 시드로 제공합니다. 흔한 변형의 원형 일부를 정리했으며, 원형이 확인되지 않은 수집 표현은 표면형을 그대로 표시합니다. 사전과 초성 비교는 학습 모델의 판정과 구분합니다.
 
 ## 수집과 추적
 
@@ -40,7 +40,7 @@ MIT·CC BY 4.0 원문은 `licenses/`, 저작권·변경 고지는 [THIRD_PARTY_N
 수집은 명시적으로 명령을 실행할 때만 수행합니다. 앱 시작이나 텍스트 분석 중에는 수집하지 않습니다. 라이선스가 달라지면 실패 처리하며 확인 없이 진행하지 않습니다.
 
 ```powershell
-Set-Location 'D:\Sub\slang'
+# 프로젝트 루트에서 실행
 docker run --rm --mount "type=bind,source=$((Get-Location).Path),target=/work" -w /work slang-inspector:local python scripts/collect_lexicon.py
 powershell -NoProfile -ExecutionPolicy Bypass -File .\scripts\Start-Slang.ps1
 ```

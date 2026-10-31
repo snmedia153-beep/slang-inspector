@@ -1,0 +1,318 @@
+{
+  "timestamp_utc": "2026-10-29T04:40:46.939728+00:00",
+  "fast": [
+    {
+      "sample": "ordinary",
+      "chars": 34,
+      "runs": 10,
+      "median_ms": 8.5,
+      "max_ms": 10.1,
+      "engine_ms": 1.2,
+      "matches": 1
+    },
+    {
+      "sample": "ambiguous",
+      "chars": 32,
+      "runs": 10,
+      "median_ms": 8.45,
+      "max_ms": 17.11,
+      "engine_ms": 1.3,
+      "matches": 2
+    },
+    {
+      "sample": "listing",
+      "chars": 41,
+      "runs": 10,
+      "median_ms": 7.39,
+      "max_ms": 8.03,
+      "engine_ms": 1.0,
+      "matches": 3
+    }
+  ],
+  "models": [
+    {
+      "model": "qwen3.5:9b",
+      "sample": "ordinary",
+      "first_call_for_model": true,
+      "status": "ok",
+      "wall_ms": 15273.95,
+      "candidate_count": 8,
+      "items": 2,
+      "usage": {
+        "load_duration": 11385350800,
+        "total_duration": 15152818100,
+        "prompt_eval_count": 1541,
+        "prompt_eval_duration": 731485000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 251,
+        "eval_duration": 3020504000,
+        "done_reason": "stop",
+        "generation_tokens_s": 83.1,
+        "payload_chars": 5442,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen3.5:9b",
+          "size": 5862210928,
+          "size_vram": 5862210928,
+          "context_length": 8192
+        }
+      ]
+    },
+    {
+      "model": "qwen3.5:9b",
+      "sample": "ambiguous",
+      "first_call_for_model": false,
+      "status": "ok",
+      "wall_ms": 3201.14,
+      "candidate_count": 7,
+      "items": 5,
+      "usage": {
+        "load_duration": 14373000,
+        "total_duration": 3079148600,
+        "prompt_eval_count": 1760,
+        "prompt_eval_duration": 634845000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 179,
+        "eval_duration": 2287356000,
+        "done_reason": "stop",
+        "generation_tokens_s": 78.26,
+        "payload_chars": 6103,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen3.5:9b",
+          "size": 5862210928,
+          "size_vram": 5862210928,
+          "context_length": 8192
+        }
+      ]
+    },
+    {
+      "model": "qwen3.5:9b",
+      "sample": "listing",
+      "first_call_for_model": false,
+      "status": "ok",
+      "wall_ms": 2648.05,
+      "candidate_count": 3,
+      "items": 2,
+      "usage": {
+        "load_duration": 10528800,
+        "total_duration": 2543467400,
+        "prompt_eval_count": 929,
+        "prompt_eval_duration": 367233000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 168,
+        "eval_duration": 2025721000,
+        "done_reason": "stop",
+        "generation_tokens_s": 82.93,
+        "payload_chars": 3454,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen3.5:9b",
+          "size": 5862210928,
+          "size_vram": 5862210928,
+          "context_length": 8192
+        }
+      ]
+    },
+    {
+      "model": "qwen3.5:4b",
+      "sample": "ordinary",
+      "first_call_for_model": true,
+      "status": "ok",
+      "wall_ms": 10971.95,
+      "candidate_count": 8,
+      "items": 2,
+      "usage": {
+        "load_duration": 8720070500,
+        "total_duration": 10869125800,
+        "prompt_eval_count": 1541,
+        "prompt_eval_duration": 437132000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 205,
+        "eval_duration": 1696997000,
+        "done_reason": "stop",
+        "generation_tokens_s": 120.8,
+        "payload_chars": 5442,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen3.5:4b",
+          "size": 3362940517,
+          "size_vram": 3362940517,
+          "context_length": 8192
+        }
+      ]
+    },
+    {
+      "model": "qwen3.5:4b",
+      "sample": "ambiguous",
+      "first_call_for_model": false,
+      "status": "ok",
+      "wall_ms": 2779.18,
+      "candidate_count": 7,
+      "items": 6,
+      "usage": {
+        "load_duration": 14040700,
+        "total_duration": 2629231900,
+        "prompt_eval_count": 1760,
+        "prompt_eval_duration": 410057000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 174,
+        "eval_duration": 2060094000,
+        "done_reason": "stop",
+        "generation_tokens_s": 84.46,
+        "payload_chars": 6103,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen3.5:4b",
+          "size": 3362940517,
+          "size_vram": 3362940517,
+          "context_length": 8192
+        }
+      ]
+    },
+    {
+      "model": "qwen3.5:4b",
+      "sample": "listing",
+      "first_call_for_model": false,
+      "status": "ok",
+      "wall_ms": 1883.16,
+      "candidate_count": 3,
+      "items": 2,
+      "usage": {
+        "load_duration": 11308100,
+        "total_duration": 1701598900,
+        "prompt_eval_count": 929,
+        "prompt_eval_duration": 252635000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 120,
+        "eval_duration": 1287834000,
+        "done_reason": "stop",
+        "generation_tokens_s": 93.18,
+        "payload_chars": 3454,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen3.5:4b",
+          "size": 3362940517,
+          "size_vram": 3362940517,
+          "context_length": 8192
+        }
+      ]
+    },
+    {
+      "model": "qwen2.5:7b-instruct",
+      "sample": "ordinary",
+      "first_call_for_model": true,
+      "status": "ok",
+      "wall_ms": 14760.05,
+      "candidate_count": 8,
+      "items": 2,
+      "usage": {
+        "load_duration": 7433959900,
+        "total_duration": 14625279800,
+        "prompt_eval_count": 1691,
+        "prompt_eval_duration": 493885000,
+        "prompt_eval_cached_count": 0,
+        "eval_count": 634,
+        "eval_duration": 6675391000,
+        "done_reason": "stop",
+        "generation_tokens_s": 94.98,
+        "payload_chars": 5451,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen2.5:7b-instruct",
+          "size": 5148633988,
+          "size_vram": 5148633988,
+          "context_length": 8192
+        }
+      ]
+    },
+    {
+      "model": "qwen2.5:7b-instruct",
+      "sample": "ambiguous",
+      "first_call_for_model": false,
+      "status": "ok",
+      "wall_ms": 4648.7,
+      "candidate_count": 7,
+      "items": 5,
+      "usage": {
+        "load_duration": 17389200,
+        "total_duration": 4498414300,
+        "prompt_eval_count": 1944,
+        "prompt_eval_duration": 349220000,
+        "prompt_eval_cached_count": 608,
+        "eval_count": 384,
+        "eval_duration": 4011526000,
+        "done_reason": "stop",
+        "generation_tokens_s": 95.72,
+        "payload_chars": 6112,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen2.5:7b-instruct",
+          "size": 5148633988,
+          "size_vram": 5148633988,
+          "context_length": 8192
+        }
+      ]
+    },
+    {
+      "model": "qwen2.5:7b-instruct",
+      "sample": "listing",
+      "first_call_for_model": false,
+      "status": "ok",
+      "wall_ms": 3000.1,
+      "candidate_count": 3,
+      "items": 2,
+      "usage": {
+        "load_duration": 13604200,
+        "total_duration": 2857823300,
+        "prompt_eval_count": 1057,
+        "prompt_eval_duration": 146886000,
+        "prompt_eval_cached_count": 608,
+        "eval_count": 243,
+        "eval_duration": 2586031000,
+        "done_reason": "stop",
+        "generation_tokens_s": 93.97,
+        "payload_chars": 3463,
+        "requested_context": 8192
+      },
+      "placement": [
+        {
+          "name": "qwen2.5:7b-instruct",
+          "size": 5148633988,
+          "size_vram": 5148633988,
+          "context_length": 8192
+        }
+      ]
+    }
+  ],
+  "api_deep": [
+    {
+      "sample": "ordinary",
+      "status": "ok",
+      "wall_ms": 3510.16,
+      "candidate_count": 8
+    },
+    {
+      "sample": "ambiguous",
+      "status": "ok",
+      "wall_ms": 3261.46,
+      "candidate_count": 7
+    }
+  ]
+}

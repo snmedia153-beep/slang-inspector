@@ -1,0 +1,164 @@
+[
+  {
+    "image": "ocr-sample.png",
+    "runs": [
+      {
+        "run": 1,
+        "wall_ms": 502.45,
+        "server_ms": 492.2,
+        "words": 18,
+        "regions": 6,
+        "fingerprint": "e1e1266477eee7d689ed9c4928f37b4348653a22da5902bdd698aa2469b53510",
+        "timings": {
+          "preprocess_ms": 13.1,
+          "worker_ms": 475.2,
+          "inference_ms": 473.8,
+          "analysis_ms": 3.9
+        },
+        "backend": "CPUExecutionProvider"
+      },
+      {
+        "run": 2,
+        "wall_ms": 530.25,
+        "server_ms": 523.8,
+        "words": 18,
+        "regions": 6,
+        "fingerprint": "e1e1266477eee7d689ed9c4928f37b4348653a22da5902bdd698aa2469b53510",
+        "timings": {
+          "preprocess_ms": 6.9,
+          "worker_ms": 515.4,
+          "inference_ms": 513.6,
+          "analysis_ms": 1.5
+        },
+        "backend": "CPUExecutionProvider"
+      },
+      {
+        "run": 3,
+        "wall_ms": 414.69,
+        "server_ms": 409.5,
+        "words": 18,
+        "regions": 6,
+        "fingerprint": "e1e1266477eee7d689ed9c4928f37b4348653a22da5902bdd698aa2469b53510",
+        "timings": {
+          "preprocess_ms": 5.3,
+          "worker_ms": 402.7,
+          "inference_ms": 401.1,
+          "analysis_ms": 1.5
+        },
+        "backend": "CPUExecutionProvider"
+      },
+      {
+        "run": 4,
+        "wall_ms": 409.2,
+        "server_ms": 403.3,
+        "words": 18,
+        "regions": 6,
+        "fingerprint": "e1e1266477eee7d689ed9c4928f37b4348653a22da5902bdd698aa2469b53510",
+        "timings": {
+          "preprocess_ms": 4.9,
+          "worker_ms": 396.9,
+          "inference_ms": 395.4,
+          "analysis_ms": 1.5
+        },
+        "backend": "CPUExecutionProvider"
+      },
+      {
+        "run": 5,
+        "wall_ms": 396.27,
+        "server_ms": 390.4,
+        "words": 18,
+        "regions": 6,
+        "fingerprint": "e1e1266477eee7d689ed9c4928f37b4348653a22da5902bdd698aa2469b53510",
+        "timings": {
+          "preprocess_ms": 4.7,
+          "worker_ms": 384.1,
+          "inference_ms": 382.8,
+          "analysis_ms": 1.5
+        },
+        "backend": "CPUExecutionProvider"
+      }
+    ],
+    "median_ms": 414.69
+  },
+  {
+    "image": "ocr-neutral.png",
+    "runs": [
+      {
+        "run": 1,
+        "wall_ms": 389.21,
+        "server_ms": 382.5,
+        "words": 4,
+        "regions": 0,
+        "fingerprint": "05272034df3ec560bed91deb0660be1be5d0d8746fd77eddb4033766e0d93ef1",
+        "timings": {
+          "preprocess_ms": 5.1,
+          "worker_ms": 374.6,
+          "inference_ms": 373.0,
+          "analysis_ms": 2.8
+        },
+        "backend": "CPUExecutionProvider"
+      },
+      {
+        "run": 2,
+        "wall_ms": 364.26,
+        "server_ms": 357.5,
+        "words": 4,
+        "regions": 0,
+        "fingerprint": "05272034df3ec560bed91deb0660be1be5d0d8746fd77eddb4033766e0d93ef1",
+        "timings": {
+          "preprocess_ms": 5.1,
+          "worker_ms": 351.4,
+          "inference_ms": 348.4,
+          "analysis_ms": 1.0
+        },
+        "backend": "CPUExecutionProvider"
+      },
+      {
+        "run": 3,
+        "wall_ms": 337.08,
+        "server_ms": 331.7,
+        "words": 4,
+        "regions": 0,
+        "fingerprint": "05272034df3ec560bed91deb0660be1be5d0d8746fd77eddb4033766e0d93ef1",
+        "timings": {
+          "preprocess_ms": 4.8,
+          "worker_ms": 326.0,
+          "inference_ms": 324.8,
+          "analysis_ms": 1.0
+        },
+        "backend": "CPUExecutionProvider"
+      },
+      {
+        "run": 4,
+        "wall_ms": 351.68,
+        "server_ms": 334.7,
+        "words": 4,
+        "regions": 0,
+        "fingerprint": "05272034df3ec560bed91deb0660be1be5d0d8746fd77eddb4033766e0d93ef1",
+        "timings": {
+          "preprocess_ms": 4.7,
+          "worker_ms": 328.9,
+          "inference_ms": 327.7,
+          "analysis_ms": 1.0
+        },
+        "backend": "CPUExecutionProvider"
+      },
+      {
+        "run": 5,
+        "wall_ms": 375.33,
+        "server_ms": 353.2,
+        "words": 4,
+        "regions": 0,
+        "fingerprint": "05272034df3ec560bed91deb0660be1be5d0d8746fd77eddb4033766e0d93ef1",
+        "timings": {
+          "preprocess_ms": 5.0,
+          "worker_ms": 347.1,
+          "inference_ms": 346.0,
+          "analysis_ms": 1.0
+        },
+        "backend": "CPUExecutionProvider"
+      }
+    ],
+    "median_ms": 364.26
+  }
+]

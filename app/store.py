@@ -1,3 +1,5 @@
+"""SQLite 사전·검토 후보 저장과 배포 사전의 해시·버전 동기화를 담당합니다."""
+
 import hashlib
 import json
 import sqlite3
@@ -142,7 +144,7 @@ class Store:
             ]
 
     def save_candidates(self, candidates):
-        # Counts describe the submitted batch; repeated submission must not inflate evidence.
+        # 문서 빈도는 제출 묶음 기준이며 같은 묶음의 재실행으로 누적하지 않습니다.
         with self.connect() as db:
             for item in candidates:
                 db.execute(

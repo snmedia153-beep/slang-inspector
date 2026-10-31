@@ -1,0 +1,12 @@
+scripts/benchmark_gpu_slang_micro.py
+scripts/build_model_comparison_report.py
+requirements-report.txt
+reports/model-comparison-gpu-control.json
+reports/model-comparison-previous-app.json
+reports/model-comparison-statistics.json
+reports/model-comparison-public-metrics.csv
+reports/model-comparison-control-runs.csv
+output/pdf/slang-model-gpu-comparison.pdf
+output/pdf/slang-model-gpu-comparison.md
+MODEL_COMPARISON_README.md
+MODEL_COMPARISON_FILES.txt

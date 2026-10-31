@@ -1,0 +1,11 @@
+﻿model,task,precision_pct,recall_pct,f1_pct,n,source,evidence
+Qwen2.5-7B 기본,English slang detection - general,74.72,52.04,56.94,3726,https://arxiv.org/html/2505.14181v1,author_reported_not_locally_reproduced
+Qwen2.5-14B 기본,English slang detection - general,66.77,75.6,70.46,3726,https://arxiv.org/html/2505.14181v1,author_reported_not_locally_reproduced
+SFT-14B,English slang detection - general,86.74,74.15,78.21,3726,https://arxiv.org/html/2505.14181v1,author_reported_not_locally_reproduced
+SlangOWL-7B,English slang detection - general,82.59,86.49,84.02,3726,https://arxiv.org/html/2505.14181v1,author_reported_not_locally_reproduced
+SlangOWL-8B,English slang detection - general,84.35,87.3,85.33,3726,https://arxiv.org/html/2505.14181v1,author_reported_not_locally_reproduced
+SlangOWL-14B,English slang detection - general,85.17,88.78,86.47,3726,https://arxiv.org/html/2505.14181v1,author_reported_not_locally_reproduced
+SlangOWL-14B,English slang detection - hard,88.86,91.5,89.6,1165,https://arxiv.org/html/2505.14181v1,author_reported_not_locally_reproduced
+euphemism-detector-multilingual,Korean synthetic euphemism classification,,,80.4,10,https://huggingface.co/hasancanbiyik/euphemism-detector-multilingual,model_card_n_definition_unverified
+KoCulture,Korean slang detection,,,,,,not_reported
+Qwen3-4B-Korean-Slang-2026-LoRA,Korean slang detection,,,,,,not_reported

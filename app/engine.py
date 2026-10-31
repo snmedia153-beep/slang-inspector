@@ -1,15 +1,22 @@
+"""원문 위치를 보존하며 사전·초성·자모·문맥 단서를 대조하는 분석 엔진."""
+
 import json
 import re
 import threading
 import time
 import unicodedata
+from bisect import bisect_left, bisect_right
 from collections import Counter, defaultdict
 from pathlib import Path
 
 from kiwipiepy import Kiwi
 
+from app.elongation import PRIVATE as IDENTIFIERS
+from app.elongation import ElongationNormalizer
+from app.initial_candidates import GAP as INITIAL_GAP
+from app.initial_candidates import INITIAL, initial_boundary, initial_key
 from app.post_rules import RULES, posting_signals
-from app.watchlist import NEUTRAL, Watchlist
+from app.watchlist import NEUTRAL, SUFFIX, Watchlist
 
 TRIGGERS = {
     "연락 경로": ("텔그", "텔레그램", "오픈채팅"),
@@ -33,10 +40,11 @@ GAP = r"[ \t.·_\-~!@#$%^&*♡♥☆★0-9]{0,3}"
 
 
 def normalize(text):
+    """정규화한 각 문자를 원문의 시작·끝 위치에 연결해 반환합니다."""
     """NFKC per grapheme-like cluster, preserving original Unicode code-point spans."""
     clusters = []
     for i, char in enumerate(text):
-        # Canonical Jamo and combining marks belong with the preceding cluster.
+        # 분해된 한글과 결합 문자를 같은 원문 클러스터에 묶습니다.
         if clusters and (unicodedata.combining(char) or "\u1160" <= char <= "\u11ff"):
             clusters[-1][0] += char
             clusters[-1][2] = i + 1
@@ -44,11 +52,11 @@ def normalize(text):
             clusters.append([char, i, i + 1])
     chars, spans = [], []
     for cluster, start, end in clusters:
-        # NFC after NFKC composes decomposed Hangul while retaining span provenance.
+        # 호환 문자 치환 후 한글을 재조합하되 원문 위치는 유지합니다.
         for char in unicodedata.normalize("NFC", unicodedata.normalize("NFKC", cluster)):
             if unicodedata.category(char) == "Cf":
                 continue
-            # Keep compatibility Jamo for readable initial-consonant aliases.
+            # 초성 별칭과 대조할 수 있도록 호환 자모를 유지합니다.
             if "\u1100" <= char <= "\u11ff":
                 char = unicodedata.normalize("NFKD", char)
                 lookup = {unicodedata.normalize("NFKD", x): x for x in CHOSUNG + JUNGSUNG}
@@ -91,7 +99,7 @@ def similarity(left, right):
 
 
 def context_at(text, start, end):
-    # Sentence-local and within 64 characters; unrelated paragraphs cannot lend evidence.
+    # 같은 문장의 64자 이내 단서만 결합해 다른 문단의 영향을 막습니다.
     left = (
         max(
             text.rfind("\n", 0, start),
@@ -127,6 +135,16 @@ class Engine:
             (Path(__file__).parent / "data" / "context_knowledge.json").read_text("utf-8")
         )
         sources = {source["id"]: source for source in knowledge["sources"]}
+        self.initial_knowledge = {
+            entry["term"]: entry for entry in knowledge["entries"] if initial_key(entry["term"])
+        }
+        self.unresolved_initials = {
+            key: entry for key, entry in self.initial_knowledge.items() if not entry["candidates"]
+        }
+        self.unresolved_patterns = [
+            (key, re.compile(INITIAL_GAP.join(re.escape(c) for c in key)))
+            for key in self.unresolved_initials
+        ]
         self.reference_initials = defaultdict(list)
         for entry in knowledge["entries"]:
             if not entry.get("fast_detection"):
@@ -158,7 +176,7 @@ class Engine:
             kiwi = Kiwi(num_workers=2, model_type="cong")
             for canonical in sorted({entry["canonical"] for entry in entries}):
                 kiwi.add_user_word(canonical, "NNP", 5.0)
-            # Public Python API: add_user_word(..., orig_word=...), not add_alias_word.
+            # Kiwi 사용자 사전과 결과의 원형 매핑을 별도로 유지합니다.
             for entry in entries:
                 kiwi.add_user_word(entry["alias"], "NNP", 5.0, orig_word=entry["canonical"])
             kiwi.add_re_word(r"[ㄱ-ㅎ]{2,4}물?", "NNP")
@@ -174,16 +192,48 @@ class Engine:
                 (entry, re.compile(GAP.join(re.escape(c) for c in normalize(entry["alias"])[0])))
                 for entry in entries
             ]
+            self.elongation = ElongationNormalizer(
+                [normalize(entry["alias"])[0] for entry in entries]
+                + [
+                    normalize(entry["keyword"].replace(" ", ""))[0]
+                    for entry in self.watchlist.bundle["entries"]
+                    if entry["status"] == "활성"
+                ],
+                SUFFIX,
+            )
             self.version = version
 
     def analyze(self, text, threshold=0.82, discover=True):
+        """사전 버전을 동기화하고 원문 구간·원형 후보·근거를 함께 반환합니다."""
         started = time.perf_counter()
         with self.lock:
             self.reload()
             normalized, spans = normalize(text)
-            signals = posting_signals(normalized, spans, text)
+            original_signals = posting_signals(normalized, spans, text)
+            normalized, spans, normalizations = self.elongation.fold(
+                normalized,
+                spans,
+                text,
+                protected=[
+                    (s["start"], s["end"])
+                    for s in original_signals
+                    if s["kind"] in {"social_account", "person_label"}
+                ],
+            )
+            signals = (
+                posting_signals(normalized, spans, text) if normalizations else original_signals
+            )
+            restoration_starts = [e["start"] for e in normalizations]
+            restoration_ends = [e["end"] for e in normalizations]
+            unresolved_spans = {
+                (match.start(), match.end(), key)
+                for key, pattern in self.unresolved_patterns
+                for match in pattern.finditer(normalized)
+                if initial_boundary(normalized, *match.span())
+            }
+            reserved_initials = [(start, end) for start, end, _ in unresolved_spans]
             watchlist_hits, watchlist_contexts = self.watchlist.scan(
-                normalized, spans, text, signals
+                normalized, spans, text, signals, reserved_initials=reserved_initials
             )
             neutral_spans = [
                 (h["start"], h["end"]) for h in watchlist_hits if h["group"] in NEUTRAL
@@ -193,10 +243,25 @@ class Engine:
                 for s in signals
                 if s["kind"] in {"social_account", "person_label"}
             ]
+            account_spans.extend(
+                (spans[m.start()][0], spans[m.end() - 1][1])
+                for m in IDENTIFIERS.finditer(normalized)
+            )
             matches = []
 
             def add(start, end, entry, method, score, reasons, sim=None):
                 original_start, original_end = spans[start][0], spans[end - 1][1]
+                restored = [
+                    event["restored"]
+                    for event in normalizations[
+                        bisect_right(restoration_ends, original_start) : bisect_left(
+                            restoration_starts, original_end
+                        )
+                    ]
+                ]
+                if restored:
+                    score = min(score, 70)
+                    reasons.append("늘임·반복 복원 후보: " + " / ".join(restored))
                 triggers, protective = context_at(normalized, start, end)
                 if protective:
                     score = max(15, score - 25)
@@ -252,7 +317,7 @@ class Engine:
                 entry = {
                     "expansion": hit["meaning"],
                     "canonical": hit["group_label"],
-                    "category": "첨부 목록 · " + hit["group_label"],
+                    "category": "문맥 목록 · " + hit["group_label"],
                     "needs_context": True,
                     "note": hit["note"],
                     "evidence": "watchlist_" + hit["evidence"],
@@ -265,7 +330,7 @@ class Engine:
                     "watchlist",
                     40,
                     [
-                        "첨부 목록의 활성 항목 일치",
+                        "문맥 검토 목록의 활성 항목 일치",
                         "뜻의 근거: " + hit["evidence"],
                         "목록 일치와 문맥 조합은 실제 의도·불법성 판정이 아닙니다.",
                     ],
@@ -287,10 +352,15 @@ class Engine:
                         or (end < len(normalized) and normalized[end].isalnum())
                     ):
                         continue
-                    # Short initials must not match the middle of a larger initial sequence.
+                    # 긴 초성열 내부에서 짧은 초성만 부분 일치하지 않도록 제한합니다.
                     if re.fullmatch(r"[ㄱ-ㅎ]+", entry["alias"]):
                         if (start and re.match(r"[가-힣ㄱ-ㅎa-z]", normalized[start - 1])) or (
                             end < len(normalized) and re.match(r"[가-힣ㄱ-ㅎa-z]", normalized[end])
+                        ):
+                            continue
+                        if any(
+                            a <= start and end <= b and (start, end) != (a, b)
+                            for a, b in reserved_initials
                         ):
                             continue
                     triggers, _ = context_at(normalized, start, end)
@@ -312,7 +382,7 @@ class Engine:
                         [f"사전 표제어 '{entry['alias']}' 일치", "원문 위치를 보존한 복원 매칭"],
                     )
 
-            # Prefer longer dictionary matches, retaining each repeated occurrence.
+            # 겹친 구간은 긴 사전 표현을 우선하되 반복 등장의 위치는 각각 남깁니다.
             matches.sort(
                 key=lambda x: (-(x["end"] - x["start"]), x["method"] == "watchlist", -x["score"])
             )
@@ -333,8 +403,22 @@ class Engine:
                 if not overlap:
                     kept.append(item)
             matches = kept
-            for match in re.finditer(r"(?<![가-힣ㄱ-ㅎ])[ㄱ-ㅎ]{2,10}(?![가-힣ㄱ-ㅎ])", normalized):
-                start, end = match.span()
+            initial_spans = {
+                (match.start(), match.end(), match.group())
+                for match in INITIAL.finditer(normalized)
+                if initial_boundary(normalized, *match.span())
+            }
+            initial_spans.update(
+                (h["normalized_start"], h["normalized_end"], initial_key(h["keyword"]))
+                for h in watchlist_hits
+                if initial_key(h["keyword"])
+            )
+            initial_spans.update(unresolved_spans)
+            for start, end, key in sorted(
+                initial_spans, key=lambda row: (row[0], -(row[1] - row[0]))
+            ):
+                if any(spans[start][0] < b and spans[end - 1][1] > a for a, b in account_spans):
+                    continue
                 if any(
                     h.get("ordinary_choice")
                     and spans[start][0] < h["end"]
@@ -342,15 +426,54 @@ class Engine:
                     for h in watchlist_hits
                 ):
                     continue
-                options = self.initial_index.get(match.group(), []) + self.reference_initials.get(
-                    match.group(), []
-                )
-                if not options or any(
+                options = self.initial_index.get(key, []) + self.reference_initials.get(key, [])
+                if (not options and key not in self.unresolved_initials) or any(
                     spans[start][0] < item["end"] and spans[end - 1][1] > item["start"]
                     for item in matches
                 ):
                     continue
-                alternatives = sorted({entry["expansion"] for entry in options})
+                if key in self.unresolved_initials:
+                    add(
+                        start,
+                        end,
+                        {
+                            "expansion": None,
+                            "canonical": "원형 미확인 초성",
+                            "category": "초성 검토 후보",
+                            "needs_context": True,
+                            "note": self.unresolved_initials[key]["note"],
+                            "evidence": "unresolved_reference",
+                            "provenance": [],
+                        },
+                        "unresolved_initials",
+                        20,
+                        [
+                            "문맥 참고 목록의 초성과 일치하지만 확인된 원형이 없습니다.",
+                            "원형을 임의로 추정하지 않고 검토 위치만 표시합니다.",
+                        ],
+                    )
+                    continue
+                alternative_values = (
+                    {entry["expansion"] for entry in options}
+                    | {
+                        c["expansion"]
+                        for c in self.initial_knowledge.get(key, {}).get("candidates", [])
+                    }
+                    | {
+                        c["expansion"]
+                        for h in watchlist_hits
+                        if h["normalized_start"] == start and h["normalized_end"] == end
+                        for c in h["candidates"]
+                    }
+                )
+                alternatives = sorted(
+                    {
+                        part.strip()
+                        for value in alternative_values
+                        for part in value.split("/")
+                        if part.strip()
+                    }
+                )
                 add(
                     start,
                     end,
@@ -360,6 +483,7 @@ class Engine:
                     [
                         "등록된 표현·원형에서 생성한 초성 대조 후보",
                         "초성이 같아도 뜻이 다를 수 있으므로 가능한 원형을 함께 확인하세요.",
+                        "한글과 붙어 있거나 OCR에서 띄어진 초성도 원문 위치로 대조합니다.",
                     ],
                 )
                 matches[-1]["alternatives"] = alternatives
@@ -429,6 +553,7 @@ class Engine:
             return {
                 "text": text,
                 "normalized": normalized,
+                "normalizations": normalizations,
                 "matches": matches,
                 "signals": signals,
                 "watchlist_hits": watchlist_hits,
@@ -443,7 +568,8 @@ class Engine:
                     "watchlist_rules": len(watchlist_contexts),
                     "watchlist_matches": sum(m["method"] == "watchlist" for m in matches),
                     "candidates": sum(
-                        m["method"] in {"jamo", "context", "initials"} for m in matches
+                        m["method"] in {"jamo", "context", "initials", "unresolved_initials"}
+                        for m in matches
                     ),
                 },
                 "tokens": [

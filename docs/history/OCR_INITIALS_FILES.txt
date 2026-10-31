@@ -1,0 +1,12 @@
+README.md
+app/initial_candidates.py
+app/engine.py
+app/watchlist.py
+app/contextual.py
+app/ocr.py
+app/static/app.js
+app/data/context_watchlist.json
+tests/test_ocr_initials.py
+scripts/verify-ocr-initials-ui.cjs
+OCR_INITIALS_REPORT.md
+OCR_INITIALS_FILES.txt

@@ -1,3 +1,5 @@
+"""입력 검증, 분석 API, 정적 Web UI와 로컬 자원의 생명주기를 관리합니다."""
+
 import json
 import os
 import sqlite3
@@ -76,9 +78,7 @@ def create_app(data_dir=None):
             yield
         finally:
             await run_in_threadpool(app.state.ocr.close)
-            # FastAPI route closures retain the app after lifespan shutdown.
-            # Release the large Kiwi model rather than waiting for cyclic GC,
-            # especially when multiple app lifespans run in one test process.
+            # 라우트의 순환 참조와 관계없이 종료 시 Kiwi 모델 메모리를 해제합니다.
             del app.state.engine
 
     app = FastAPI(

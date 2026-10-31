@@ -1,0 +1,116 @@
+{
+  "date": "2026-10-29",
+  "control_model": "qwen3.5:4b",
+  "statistics": {
+    "cpu": {
+      "n": 5,
+      "median_ms": 13177.585,
+      "min_ms": 12953.179,
+      "max_ms": 13822.728,
+      "median_tokens_s": 9.884,
+      "median_bootstrap_95_ms": [
+        12953.179,
+        13822.728
+      ]
+    },
+    "gpu": {
+      "n": 10,
+      "median_ms": 1927.1035000000002,
+      "min_ms": 1893.694,
+      "max_ms": 1994.547,
+      "median_tokens_s": 72.737,
+      "median_bootstrap_95_ms": [
+        1908.965,
+        1981.227
+      ]
+    },
+    "latency_speedup": 6.838026603137817,
+    "generation_speedup": 7.3590651558073645,
+    "latency_reduction_pct": 85.37589778400215,
+    "precision_example": 0.4761904761904762,
+    "zero_fp_600_one_sided_95_upper": 0.004980443380361299,
+    "example_8_of_10_wilson_95": [
+      0.49016247153664183,
+      0.9433178485456247
+    ]
+  },
+  "research_candidates_direct_benchmarked": 0,
+  "shared_korean_test_evaluated": false,
+  "sources": [
+    {
+      "id": "S1",
+      "title": "KoCulture 원본 모델 카드",
+      "url": "https://huggingface.co/huggingface-KREW/EXAONE-3.5-7.8B-Instruct-KoCulture"
+    },
+    {
+      "id": "S2",
+      "title": "한국어 Slang LoRA 원본 카드",
+      "url": "https://huggingface.co/DevJeongDaeRi/Qwen3-4B-Korean-Slang-2026-LoRA"
+    },
+    {
+      "id": "S3",
+      "title": "다국어 완곡어법 분류기 원본 카드",
+      "url": "https://huggingface.co/hasancanbiyik/euphemism-detector-multilingual"
+    },
+    {
+      "id": "S4",
+      "title": "SlangDIT 논문 v1, 표 1·3·4",
+      "url": "https://arxiv.org/html/2505.14181v1"
+    },
+    {
+      "id": "S5",
+      "title": "SlangDIT 저자 공개 저장소",
+      "url": "https://github.com/XL2248/SlangDIT"
+    },
+    {
+      "id": "S6",
+      "title": "MLX 0.32.4 설치·CUDA 공식 문서",
+      "url": "https://ml-explore.github.io/mlx/build/html/install.html"
+    },
+    {
+      "id": "S7",
+      "title": "MLX-LM 공식 사용법",
+      "url": "https://github.com/ml-explore/mlx-lm"
+    },
+    {
+      "id": "S8",
+      "title": "ONNX Runtime CUDA 실행 제공자",
+      "url": "https://onnxruntime.ai/docs/execution-providers/CUDA-ExecutionProvider.html"
+    },
+    {
+      "id": "S9",
+      "title": "ONNX Runtime TensorRT 실행 제공자",
+      "url": "https://onnxruntime.ai/docs/execution-providers/TensorRT-ExecutionProvider.html"
+    },
+    {
+      "id": "S10",
+      "title": "NVIDIA TensorRT 지원 표",
+      "url": "https://docs.nvidia.com/deeplearning/tensorrt/latest/getting-started/support-matrix.html"
+    },
+    {
+      "id": "S11",
+      "title": "Ollama GPU 배치·병렬 실행 FAQ",
+      "url": "https://docs.ollama.com/faq"
+    },
+    {
+      "id": "S12",
+      "title": "Ollama 응답 시간·토큰 지표",
+      "url": "https://docs.ollama.com/api/usage"
+    },
+    {
+      "id": "S13",
+      "title": "KoCulture GGUF 변환 배포자",
+      "url": "https://huggingface.co/mradermacher/EXAONE-3.5-7.8B-Instruct-KoCulture-GGUF"
+    },
+    {
+      "id": "S14",
+      "title": "Qwen2.5-14B 원본 사양",
+      "url": "https://huggingface.co/Qwen/Qwen2.5-14B-Instruct"
+    },
+    {
+      "id": "S15",
+      "title": "Qwen3-4B-2507 원본 사양",
+      "url": "https://huggingface.co/Qwen/Qwen3-4B-Instruct-2507"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-"""Warm OCR subprocess. Only JSON goes to stdout; input pixels stay in memory."""
+"""OCR 모델을 재사용하는 작업 프로세스. 표준 출력은 JSON 응답 전용입니다."""
 
 import contextlib
 import json
@@ -20,8 +20,7 @@ def create_engine():
         for name in ("det.onnx", "rec.onnx", "dict.txt"):
             if not (models / name).is_file():
                 raise RuntimeError("Required local OCR model is missing")
-        # Two ONNX sessions otherwise spin concurrently while OpenCV also runs
-        # its pool, wasting the container's two-CPU budget between OCR stages.
+        # CPU 2개 제한에서 ONNX 세션과 OpenCV 스레드의 경합을 줄입니다.
         cv2.setNumThreads(1)
         options = ort.SessionOptions()
         options.intra_op_num_threads = 2
@@ -46,8 +45,7 @@ def create_engine():
                 "Rec.rec_keys_path": str(models / "dict.txt"),
             }
         )
-        # RapidOCR 3.10 supports supplied ONNX sessions. No library monkeypatch
-        # or model conversion is required to set these documented ORT options.
+        # 명시적인 ONNX 세션을 주입해 대기 스레드 회전과 실행 제공자를 제어합니다.
         with flag_override(engine.cfg, "allow_objects", True):
             for section, filename in (("Det", "det.onnx"), ("Rec", "rec.onnx")):
                 engine.cfg[section].session = ort.InferenceSession(
@@ -55,8 +53,7 @@ def create_engine():
                     sess_options=options,
                     providers=["CPUExecutionProvider"],
                 )
-        # RapidOCR loads models lazily. Load both and run a tiny synthetic warmup
-        # before readiness, so the first real image also reuses initialized sessions.
+        # 준비 완료 응답 전에 지연 로딩과 예열을 마쳐 첫 요청에서도 세션을 재사용합니다.
         engine._load_det_model()
         engine._load_rec_model()
         engine(Image.new("L", (96, 96), 255))

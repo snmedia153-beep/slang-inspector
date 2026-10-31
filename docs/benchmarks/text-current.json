@@ -1,0 +1,29 @@
+[
+  {
+    "sample": "ordinary",
+    "characters": 22,
+    "n": 20,
+    "median_ms": 5.419,
+    "max_ms": 20.495,
+    "matches": 0,
+    "normalizations": 0
+  },
+  {
+    "sample": "elongated",
+    "characters": 17,
+    "n": 20,
+    "median_ms": 5.867,
+    "max_ms": 15.042,
+    "matches": 2,
+    "normalizations": 1
+  },
+  {
+    "sample": "long_repeat",
+    "characters": 15003,
+    "n": 20,
+    "median_ms": 44.977,
+    "max_ms": 77.369,
+    "matches": 0,
+    "normalizations": 1
+  }
+]

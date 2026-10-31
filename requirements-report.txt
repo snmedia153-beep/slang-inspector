@@ -1,0 +1,2 @@
+# Optional report generation only. Not used by the production Docker image.
+reportlab==5.0.0

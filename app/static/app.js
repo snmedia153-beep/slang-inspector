@@ -4,10 +4,11 @@ const samples = {
   initials: "ㄱㄷ ㄷㄸ",
   posting: "xx년생, 아동포르노, 나눠올리기, 재업ㄴㄴ\nദ്ദി( • ᴗ • ) 좋은 게시물에는 추천을 눌러주세요.\n인스타 @sample_07",
   obfuscated: "레전드 끄.딩.물 및 ㄱㄷ 공유방 입갤. 텔그에서 비번 확인 후 교환",
-  context: "보라상자 교환합니다. 텔그에서 비번 확인하세요.",
+  context: "병원에서 ㅅㅅ 예약을 확인했습니다. 채용 ㅈㅇ 서류를 제출했습니다.",
   normal: "오늘은 친구들과 과일을 사러 갑니다. 학교에서 사진 촬영 수업을 들었어요."
 };
-const methods = {dictionary: "사전 일치", normalized: "복원 일치", pattern: "게시글 표현 규칙", watchlist: "첨부 목록·문맥 대조", initials: "초성 원형 후보", jamo: "자모 유사 후보", context: "문맥 검토 후보"};
+const methods = {dictionary: "사전 일치", normalized: "복원 일치", pattern: "게시글 표현 규칙", watchlist: "문맥 목록 대조", initials: "초성 원형 후보", unresolved_initials: "원형 미확인 초성", jamo: "자모 유사 후보", context: "문맥 검토 후보"};
+const candidateMethods = new Set(["jamo", "context", "initials", "unresolved_initials"]);
 const evidenceLabels = {documented: "풀이 용례 확인", literal: "일반·표면 의미", hypothesis: "미확인 풀이 후보", unknown: "원형 미확인"};
 const assessmentLabels = {neutral: "일반 단서", contextual: "조합 문맥 있음", candidate: "목록 일치", unresolved: "원형 미확인"};
 let lastResult = null;
@@ -99,23 +100,23 @@ function renderResult(data) {
   $("stat-time").replaceChildren(document.createTextNode(data.elapsed_ms), element("small", "", " ms"));
   $("result-notice").textContent = data.notice;
   const highlighted = $("highlighted-text"); highlighted.replaceChildren();
-  // API offsets use Unicode code points; JS string offsets otherwise count UTF-16 units.
+  // API의 Unicode 문자 위치를 유지하도록 UTF-16 단위 대신 코드 포인트로 나눕니다.
   const chars = Array.from(data.text); let cursor = 0;
   data.matches.forEach(item => {
     highlighted.append(document.createTextNode(chars.slice(cursor, item.start).join("")));
-    const mark = element("mark", ["jamo", "context", "initials"].includes(item.method) ? "candidate" : "", item.surface);
+    const mark = element("mark", candidateMethods.has(item.method) ? "candidate" : "", item.surface);
     mark.title = `${methods[item.method]} · ${item.canonical}`; highlighted.append(mark); cursor = item.end;
   });
   highlighted.append(document.createTextNode(chars.slice(cursor).join("")));
   const list = $("match-list"); list.replaceChildren();
   if (!data.matches.length) {
     const empty = element("div", "empty-state");
-    empty.append(element("h3", "", "현재 사전과 규칙에 일치하는 표현이 없습니다."), element("p", "", "탐지되지 않았다는 결과가 안전성이나 은어 부재를 보장하지는 않습니다.")); list.append(empty);
+    empty.append(element("h3", "", data.normalizations?.length ? "늘임 복원 후보가 있습니다. 의미는 문맥으로 확인하세요." : "현재 사전과 규칙에 일치하는 표현이 없습니다."), element("p", "", "탐지되지 않았다는 결과가 안전성이나 은어 부재를 보장하지는 않습니다.")); list.append(empty);
   }
   data.matches.slice(0, 150).forEach((item, index) => {
     const card = element("article", "match-card");
     const heading = element("div", "match-heading");
-    const candidate = ["jamo", "context", "initials"].includes(item.method);
+    const candidate = candidateMethods.has(item.method);
     heading.append(element("strong", "", item.surface), element("span", `method-badge${candidate ? " candidate" : ""}`, methods[item.method]));
     const score = element("span", "score"); score.append(element("b", "", item.score), document.createTextNode(" / 100 근거 강도")); heading.append(score);
     const expansion = element("div", "expansion-line");
@@ -147,7 +148,21 @@ function renderResult(data) {
     });
   }
   contextPanel().hidden = true;
+  renderNormalizations(data);
   renderWatchlist(data);
+}
+function renderNormalizations(data) {
+  let panel = $("normalization-results");
+  if (!panel) { panel = element("section", "panel watchlist-panel normalization-panel"); panel.id = "normalization-results"; $("match-list").before(panel); }
+  panel.replaceChildren(); panel.hidden = !data.normalizations?.length;
+  if (panel.hidden) return;
+  panel.append(element("h2", "", `늘임·반복 복원 후보 · ${data.normalizations.length}개`), element("p", "muted", "등록된 표현과 맞는 반복 표기만 복원합니다. 일반적인 말 늘임일 수 있으며, 복원 자체가 성적 의미나 우회 의도의 판정은 아닙니다."));
+  data.normalizations.slice(0, 100).forEach(item => {
+    const row = element("article", "watchlist-row");
+    row.append(element("strong", "", item.surface), element("p", "", `복원 후보 → ${item.restored}`), element("small", "", `원문 ${item.start + 1}–${item.end}자 · 문맥과 함께 확인`));
+    panel.append(row);
+  });
+  if (data.normalizations.length > 100) panel.append(element("p", "muted", "앞 100개를 표시합니다. 전체 복원 위치는 JSON으로 확인할 수 있습니다."));
 }
 function watchlistRow(hit) {
   const row = element("article", "watchlist-row");
@@ -166,7 +181,7 @@ function renderWatchlist(data) {
   if (!panel) { panel = element("section", "panel watchlist-panel"); panel.id = "watchlist-results"; $("match-list").before(panel); }
   panel.replaceChildren(); panel.hidden = !data.watchlist_hits?.length;
   if (panel.hidden) return;
-  panel.append(element("h2", "", `첨부 목록 대조 · ${data.watchlist_hits.length}개 위치`), element("p", "muted", "일반 단서·추정 풀이·원형 미확인을 구분합니다. 목록 일치 자체는 성착취 판정이 아닙니다."));
+  panel.append(element("h2", "", `문맥 목록 대조 · ${data.watchlist_hits.length}개 위치`), element("p", "muted", "일반 단서·추정 풀이·원형 미확인을 구분합니다. 목록 일치 자체는 성착취 판정이 아닙니다."));
   (data.watchlist_contexts || []).slice(0, 30).forEach(context => {
     const row = element("div", "watchlist-context");
     row.append(element("strong", "", context.explanation), element("p", "clause", context.clause), element("small", "", context.note)); panel.append(row);
@@ -236,8 +251,8 @@ async function refreshLexicon() {
 function renderWatchlistCatalog(data) {
   let panel = $("watchlist-catalog");
   if (!panel) { panel = element("details", "panel watchlist-panel"); panel.id = "watchlist-catalog"; $("dataset-info").after(panel); }
-  panel.replaceChildren(element("summary", "", `첨부 문맥 목록 · 활성 ${data.active} / 전체 ${data.total}개`), element("p", "muted", data.notice));
-  const label = element("label", "watchlist-search", "첨부 목록 검색 ");
+  panel.replaceChildren(element("summary", "", `문맥 검토 목록 · 활성 ${data.active} / 전체 ${data.total}개`), element("p", "muted", data.notice));
+  const label = element("label", "watchlist-search", "문맥 목록 검색 ");
   const search = element("input"); search.type = "search"; search.id = "watchlist-search"; search.placeholder = "키워드·뜻·타입 검색"; label.append(search);
   const count = element("p", "muted"); count.id = "watchlist-count";
   const rows = element("div"); rows.id = "watchlist-catalog-rows";

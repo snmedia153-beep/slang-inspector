@@ -1,4 +1,4 @@
-"""Reusable, killable OCR process with bounded, memory-only request/response pipes."""
+"""크기·시간을 제한한 메모리 파이프로 재사용 가능한 OCR 프로세스를 관리합니다."""
 
 import json
 import os
@@ -115,7 +115,7 @@ class OcrProcess:
                 raise OSError("OCR inference failed")
             return response
         except Exception:
-            # A timed-out request cannot finish later and corrupt the next image's result.
+            # 만료된 작업의 응답이 다음 이미지에 섞이지 않도록 프로세스를 종료합니다.
             self.close()
             raise
 
